@@ -39,9 +39,9 @@ export default function Home() {
   ];
 
   return (
-    <div className="pt-20">
+    <div className="pt-20 animated-bg min-h-screen">
       {/* Hero Section */}
-      <section className="min-h-screen bg-gradient-to-br from-black via-purple-900/20 to-cyan-900/20 flex items-center">
+      <section className="min-h-screen flex items-center">
         <div className="container mx-auto px-4 py-20">
           <div className="max-w-5xl mx-auto text-center">
             <div className="mb-8">
@@ -105,7 +105,7 @@ export default function Home() {
       </section>
 
       {/* The Story Behind Rhythm */}
-      <section className="py-20 bg-gradient-to-br from-purple-900/30 via-black/50 to-cyan-900/30">
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h3 className="text-4xl font-bold mb-8 gradient-text">
@@ -163,7 +163,7 @@ export default function Home() {
       </section>
 
       {/* Key Features Highlight */}
-      <section className="py-20 bg-gray-900/30">
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h3 className="text-4xl font-bold text-center mb-12 gradient-text">
@@ -223,7 +223,7 @@ export default function Home() {
       </section>
 
       {/* Project Worth Section */}
-      <section className="py-20 bg-gradient-to-br from-green-900/30 to-blue-900/30">
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h3 className="text-4xl font-bold mb-8 gradient-text">
@@ -277,7 +277,7 @@ export default function Home() {
       </section>
 
       {/* Download CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-purple-900/30 to-cyan-900/30">
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h3 className="text-4xl font-bold mb-6 gradient-text">
