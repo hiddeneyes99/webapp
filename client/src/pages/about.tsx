@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import AppIcon from "@/components/ui/app-icon";
 import DownloadModal from "@/components/ui/download-modal";
 import { useState } from "react";
+import techWhiteHatLogo from "@assets/technical white hat 2.0_1752333903253.jpg";
 
 export default function About() {
   const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
@@ -58,7 +59,7 @@ export default function About() {
               <CardContent className="p-8">
                 <div className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
                   <img 
-                    src="/attached_assets/technical white hat 2.0_1752333903253.jpg"
+                    src={techWhiteHatLogo}
                     alt="Technical White Hat - Software Developer" 
                     className="w-40 h-40 rounded-full object-cover shadow-lg" 
                   />
