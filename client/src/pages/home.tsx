@@ -39,9 +39,9 @@ export default function Home() {
   ];
 
   return (
-    <div className="pt-20 animated-bg">
+    <div className="pt-20">
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center relative overflow-hidden">
+      <section className="min-h-screen bg-gradient-to-br from-black via-purple-900/20 to-cyan-900/20 flex items-center">
         <div className="container mx-auto px-4 py-20">
           <div className="max-w-5xl mx-auto text-center">
             <div className="mb-8">
