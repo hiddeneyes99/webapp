@@ -200,8 +200,13 @@ export default function Home() {
       </section>
 
       {/* All Features Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-gradient-to-br from-indigo-900/20 via-purple-900/30 to-pink-900/20 relative overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute top-10 left-10 w-32 h-32 bg-purple-500/10 rounded-full blur-xl"></div>
+        <div className="absolute bottom-10 right-10 w-40 h-40 bg-pink-500/10 rounded-full blur-xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-7xl mx-auto">
             <h3 className="text-4xl font-bold text-center mb-12 gradient-text">
               Complete Feature Set
