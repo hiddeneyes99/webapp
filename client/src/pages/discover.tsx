@@ -85,8 +85,12 @@ export default function Features() {
       </section>
 
       {/* Main Features */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-gradient-to-br from-blue-900/20 via-indigo-900/30 to-purple-900/20 relative overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute top-20 left-20 w-24 h-24 bg-blue-500/10 rounded-full blur-xl"></div>
+        <div className="absolute bottom-20 right-20 w-32 h-32 bg-purple-500/10 rounded-full blur-xl"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl font-bold text-center mb-12 gradient-text">
               Core Features
@@ -148,8 +152,13 @@ export default function Features() {
       </section>
 
       {/* Advanced Features */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-gradient-to-br from-emerald-900/20 via-teal-900/30 to-cyan-900/20 relative overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute top-10 right-10 w-28 h-28 bg-emerald-500/10 rounded-full blur-xl"></div>
+        <div className="absolute bottom-10 left-10 w-36 h-36 bg-cyan-500/10 rounded-full blur-xl"></div>
+        <div className="absolute top-1/2 left-1/3 w-20 h-20 bg-teal-500/10 rounded-full blur-lg"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-4xl font-bold text-center mb-12 gradient-text">
               Advanced Features
@@ -199,8 +208,12 @@ export default function Features() {
       </section>
 
       {/* System Requirements */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-gradient-to-br from-rose-900/20 via-pink-900/30 to-purple-900/20 relative overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute top-16 left-16 w-20 h-20 bg-rose-500/10 rounded-full blur-lg"></div>
+        <div className="absolute bottom-16 right-16 w-24 h-24 bg-pink-500/10 rounded-full blur-xl"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold text-center mb-12 gradient-text">
               System Requirements
