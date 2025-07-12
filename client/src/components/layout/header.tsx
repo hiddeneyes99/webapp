@@ -23,7 +23,7 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-lg border-b border-gray-800">
       <nav className="container mx-auto px-4 py-3 flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
-          <AppIcon size="md" useCustomIcon className="logo-animate" />
+          <AppIcon size="md" useCustomIcon />
           <div>
             <h1 className="text-xl font-bold gradient-text">Rhythm Music</h1>
             <p className="text-xs text-gray-400">by Technical White Hat</p>

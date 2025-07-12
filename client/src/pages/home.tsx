@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import AppIcon from "@/components/ui/app-icon";
 import DownloadModal from "@/components/ui/download-modal";
+import AnimatedVisualizer from "@/components/ui/animated-visualizer";
 
 export default function Home() {
   const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
@@ -44,10 +45,13 @@ export default function Home() {
         <div className="container mx-auto px-4 py-20">
           <div className="max-w-5xl mx-auto text-center">
             <div className="mb-8">
-              <AppIcon size="xl" className="mx-auto mb-8 logo-animate" useCustomIcon />
-              <h1 className="text-6xl md:text-8xl font-bold mb-6 gradient-text">
-                Rhythm Music
-              </h1>
+              <AppIcon size="xl" className="mx-auto mb-8" useCustomIcon />
+              <div className="flex flex-col items-center mb-6">
+                <AnimatedVisualizer className="mb-4" bars={5} />
+                <h1 className="text-6xl md:text-8xl font-bold gradient-text">
+                  Rhythm Music
+                </h1>
+              </div>
               <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
                 Ad-Free Music Experience
               </h2>

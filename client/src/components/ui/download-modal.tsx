@@ -39,14 +39,14 @@ export default function DownloadModal({ isOpen, onClose }: DownloadModalProps) {
     {
       name: "Linux",
       icon: Monitor,
-      version: "Latest",
+      version: "v1.0.0",
       size: "40 MB",
       requirements: "Ubuntu 18.04+",
-      available: true,
-      downloadUrl: "https://github.com/technicalwhitehat-yt/RhyThm-Music/releases/latest",
-      color: "text-yellow-500",
-      bgColor: "from-yellow-500/20 to-yellow-600/20",
-      borderColor: "border-yellow-500/30"
+      available: false,
+      downloadUrl: "#",
+      color: "text-gray-400",
+      bgColor: "from-gray-500/20 to-gray-600/20",
+      borderColor: "border-gray-500/30"
     },
     {
       name: "macOS",
@@ -82,62 +82,62 @@ export default function DownloadModal({ isOpen, onClose }: DownloadModalProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl bg-black/90 backdrop-blur-lg border-gray-800 modal-fade-in">
+      <DialogContent className="w-[95vw] max-w-6xl max-h-[90vh] overflow-y-auto bg-black/90 backdrop-blur-lg border-gray-800 modal-fade-in">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold gradient-text flex items-center">
-            <Download className="mr-3" size={28} />
+          <DialogTitle className="text-xl md:text-2xl font-bold gradient-text flex items-center flex-wrap">
+            <Download className="mr-2 md:mr-3" size={24} />
             Download Rhythm Music
           </DialogTitle>
         </DialogHeader>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 md:gap-6 mt-4 md:mt-6">
           {platforms.map((platform, index) => (
             <Card 
               key={platform.name} 
               className={`bg-gradient-to-br ${platform.bgColor} border ${platform.borderColor} hover:scale-105 transition-all duration-300 ${platform.available ? 'cursor-pointer' : 'opacity-60'}`}
               onClick={() => handleDownload(platform)}
             >
-              <CardContent className="p-6 text-center">
-                <platform.icon className={`mx-auto mb-4 ${platform.color}`} size={48} />
-                <h3 className="text-xl font-semibold mb-2">{platform.name}</h3>
+              <CardContent className="p-4 md:p-6 text-center">
+                <platform.icon className={`mx-auto mb-3 md:mb-4 ${platform.color}`} size={40} />
+                <h3 className="text-lg md:text-xl font-semibold mb-2">{platform.name}</h3>
                 
-                <div className="space-y-2 mb-4">
-                  <div className="flex justify-between text-sm text-gray-400">
+                <div className="space-y-1 md:space-y-2 mb-3 md:mb-4">
+                  <div className="flex justify-between text-xs md:text-sm text-gray-400">
                     <span>Version:</span>
-                    <span>{platform.version}</span>
+                    <span className="text-right">{platform.version}</span>
                   </div>
-                  <div className="flex justify-between text-sm text-gray-400">
+                  <div className="flex justify-between text-xs md:text-sm text-gray-400">
                     <span>Size:</span>
-                    <span>{platform.size}</span>
+                    <span className="text-right">{platform.size}</span>
                   </div>
-                  <div className="flex justify-between text-sm text-gray-400">
-                    <span>Requirements:</span>
-                    <span>{platform.requirements}</span>
+                  <div className="flex justify-between text-xs md:text-sm text-gray-400">
+                    <span>Req:</span>
+                    <span className="text-right text-xs">{platform.requirements}</span>
                   </div>
                 </div>
 
                 {platform.available ? (
                   <>
-                    <Badge variant="outline" className="mb-4 text-green-400 border-green-400">
+                    <Badge variant="outline" className="mb-2 md:mb-4 text-xs text-green-400 border-green-400">
                       ✓ Available Now
                     </Badge>
                     <Button 
-                      className={`w-full bg-gradient-to-r ${platform.bgColor} hover:opacity-80 download-btn`}
+                      className={`w-full text-sm bg-gradient-to-r ${platform.bgColor} hover:opacity-80 download-btn`}
                       onClick={() => handleDownload(platform)}
                     >
-                      <Download className="mr-2" size={16} />
+                      <Download className="mr-1 md:mr-2" size={14} />
                       Download
                     </Button>
                   </>
                 ) : (
                   <>
-                    <Badge variant="outline" className="mb-4 text-orange-400 border-orange-400">
-                      <Clock className="mr-1" size={12} />
+                    <Badge variant="outline" className="mb-2 md:mb-4 text-xs text-orange-400 border-orange-400">
+                      <Clock className="mr-1" size={10} />
                       Coming Soon
                     </Badge>
                     <Button 
                       disabled 
-                      className="w-full opacity-50"
+                      className="w-full text-sm opacity-50"
                     >
                       Not Available
                     </Button>
@@ -148,21 +148,22 @@ export default function DownloadModal({ isOpen, onClose }: DownloadModalProps) {
           ))}
         </div>
 
-        <div className="mt-6 p-4 bg-gray-900/50 rounded-lg border border-gray-700">
-          <h4 className="font-semibold mb-2 flex items-center">
-            <ExternalLink className="mr-2" size={16} />
+        <div className="mt-4 md:mt-6 p-3 md:p-4 bg-gray-900/50 rounded-lg border border-gray-700">
+          <h4 className="text-sm md:text-base font-semibold mb-2 flex items-center">
+            <ExternalLink className="mr-2" size={14} />
             Need Help?
           </h4>
-          <p className="text-sm text-gray-400 mb-3">
+          <p className="text-xs md:text-sm text-gray-400 mb-3">
             Visit our GitHub repository for installation guides, troubleshooting, and community support.
           </p>
-          <div className="flex space-x-3">
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
             <a 
               href="https://github.com/technicalwhitehat-yt/RhyThm-Music/releases" 
               target="_blank" 
               rel="noopener noreferrer"
+              className="flex-1"
             >
-              <Button variant="outline" size="sm" className="border-gray-600">
+              <Button variant="outline" size="sm" className="w-full border-gray-600 text-xs md:text-sm">
                 All Releases
               </Button>
             </a>
@@ -170,8 +171,9 @@ export default function DownloadModal({ isOpen, onClose }: DownloadModalProps) {
               href="https://github.com/technicalwhitehat-yt/RhyThm-Music/wiki" 
               target="_blank" 
               rel="noopener noreferrer"
+              className="flex-1"
             >
-              <Button variant="outline" size="sm" className="border-gray-600">
+              <Button variant="outline" size="sm" className="w-full border-gray-600 text-xs md:text-sm">
                 Documentation
               </Button>
             </a>
