@@ -39,8 +39,12 @@ export default function About() {
       </section>
 
       {/* Creator Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-gradient-to-br from-violet-900/20 via-purple-900/30 to-indigo-900/20 relative overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute top-20 left-20 w-32 h-32 bg-violet-500/10 rounded-full blur-xl"></div>
+        <div className="absolute bottom-20 right-20 w-28 h-28 bg-indigo-500/10 rounded-full blur-xl"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold text-center mb-12 gradient-text">
               Meet the Creator
@@ -121,8 +125,13 @@ export default function About() {
       </section>
 
       {/* Project Stats */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-gradient-to-br from-amber-900/20 via-orange-900/30 to-red-900/20 relative overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute top-16 right-16 w-24 h-24 bg-amber-500/10 rounded-full blur-lg"></div>
+        <div className="absolute bottom-16 left-16 w-36 h-36 bg-red-500/10 rounded-full blur-xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-orange-500/10 rounded-full blur-lg"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl font-bold text-center mb-12 gradient-text">
               Community Impact
@@ -247,8 +256,12 @@ export default function About() {
       </section>
 
       {/* Technical Stack */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-gradient-to-br from-emerald-900/20 via-green-900/30 to-teal-900/20 relative overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute top-12 left-12 w-28 h-28 bg-emerald-500/10 rounded-full blur-xl"></div>
+        <div className="absolute bottom-12 right-12 w-32 h-32 bg-teal-500/10 rounded-full blur-xl"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl font-bold text-center mb-12 gradient-text">
               Built With Modern Technology
