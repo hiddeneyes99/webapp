@@ -6,7 +6,11 @@ import AppIcon from "@/components/ui/app-icon";
 import AnimatedVisualizer from "@/components/ui/animated-visualizer";
 import { cn } from "@/lib/utils";
 
-export default function Header() {
+interface HeaderProps {
+  onDownloadClick?: () => void;
+}
+
+export default function Header({ onDownloadClick }: HeaderProps) {
   const [location] = useLocation();
 
   const navigation = [
@@ -48,16 +52,14 @@ export default function Header() {
         </div>
 
         <div className="flex items-center space-x-3">
-          <a 
-            href="https://github.com/technicalwhitehat-yt/RhyThm-Music/releases/latest" 
-            target="_blank" 
-            rel="noopener noreferrer"
+          <Button 
+            size="sm" 
+            className="bg-gradient-to-r from-purple-500 to-cyan-500 hover:shadow-lg hidden md:flex"
+            onClick={onDownloadClick}
           >
-            <Button size="sm" className="bg-gradient-to-r from-purple-500 to-cyan-500 hover:shadow-lg hidden md:flex">
-              <Download size={16} className="mr-2" />
-              Download
-            </Button>
-          </a>
+            <Download size={16} className="mr-2" />
+            Download
+          </Button>
           
           <a 
             href="https://github.com/technicalwhitehat-yt/RhyThm-Music" 
@@ -91,15 +93,13 @@ export default function Header() {
                   </Link>
                 ))}
                 <div className="pt-4 border-t border-gray-700">
-                  <a 
-                    href="https://github.com/technicalwhitehat-yt/RhyThm-Music/releases/latest" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors text-gray-400 hover:text-cyan-400"
+                  <button
+                    onClick={onDownloadClick}
+                    className="flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors text-gray-400 hover:text-cyan-400 w-full text-left"
                   >
                     <Download size={20} />
                     <span>Download App</span>
-                  </a>
+                  </button>
                   <a 
                     href="https://github.com/technicalwhitehat-yt/RhyThm-Music" 
                     target="_blank" 

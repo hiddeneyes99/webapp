@@ -3,8 +3,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import AppIcon from "@/components/ui/app-icon";
+import DownloadModal from "@/components/ui/download-modal";
+import { useState } from "react";
 
 export default function Features() {
+  const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
+
   const mainFeatures = [
     { icon: "🎵", title: "YouTube & YouTube Music Integration", description: "Direct streaming from the world's largest music platforms" },
     { icon: "🚫", title: "100% Ad-Free Experience", description: "No advertisements, no interruptions, just pure music" },
@@ -59,16 +63,14 @@ export default function Features() {
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-              <a 
-                href="https://github.com/technicalwhitehat-yt/RhyThm-Music/releases/latest" 
-                target="_blank" 
-                rel="noopener noreferrer"
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-purple-500 to-cyan-500 hover:shadow-xl text-lg px-8 py-4"
+                onClick={() => setIsDownloadModalOpen(true)}
               >
-                <Button size="lg" className="bg-gradient-to-r from-purple-500 to-cyan-500 hover:shadow-xl text-lg px-8 py-4">
-                  <Download className="mr-2" size={20} />
-                  Download Now
-                </Button>
-              </a>
+                <Download className="mr-2" size={20} />
+                Download Now
+              </Button>
               <a 
                 href="https://github.com/technicalwhitehat-yt/RhyThm-Music" 
                 target="_blank" 
@@ -132,17 +134,13 @@ export default function Features() {
                     <p className="text-gray-400 mb-2">Version: {platform.version}</p>
                     <p className="text-sm text-gray-500">Downloads: {platform.downloads}</p>
                     
-                    <a 
-                      href="https://github.com/technicalwhitehat-yt/RhyThm-Music/releases/latest" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="block mt-4"
+                    <Button 
+                      className="w-full bg-gradient-to-r from-purple-500 to-cyan-500 mt-4"
+                      onClick={() => setIsDownloadModalOpen(true)}
                     >
-                      <Button className="w-full bg-gradient-to-r from-purple-500 to-cyan-500">
-                        <Download className="mr-2" size={16} />
-                        Download for {platform.name}
-                      </Button>
-                    </a>
+                      <Download className="mr-2" size={16} />
+                      Download for {platform.name}
+                    </Button>
                   </CardContent>
                 </Card>
               ))}
@@ -275,16 +273,14 @@ export default function Features() {
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-              <a 
-                href="https://github.com/technicalwhitehat-yt/RhyThm-Music/releases/latest" 
-                target="_blank" 
-                rel="noopener noreferrer"
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-purple-500 to-cyan-500 hover:shadow-xl text-lg px-8 py-4"
+                onClick={() => setIsDownloadModalOpen(true)}
               >
-                <Button size="lg" className="bg-gradient-to-r from-purple-500 to-cyan-500 hover:shadow-xl text-lg px-8 py-4">
-                  <Download className="mr-2" size={20} />
-                  Download Latest Release
-                </Button>
-              </a>
+                <Download className="mr-2" size={20} />
+                Download Latest Release
+              </Button>
               <a 
                 href="https://github.com/technicalwhitehat-yt/RhyThm-Music" 
                 target="_blank" 
@@ -299,6 +295,12 @@ export default function Features() {
           </div>
         </div>
       </section>
+
+      {/* Download Modal */}
+      <DownloadModal 
+        isOpen={isDownloadModalOpen} 
+        onClose={() => setIsDownloadModalOpen(false)} 
+      />
     </div>
   );
 }

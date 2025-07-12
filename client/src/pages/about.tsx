@@ -2,8 +2,12 @@ import { Github, Heart, Star, GitFork, Scale, ExternalLink, Download, Code, User
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import AppIcon from "@/components/ui/app-icon";
+import DownloadModal from "@/components/ui/download-modal";
+import { useState } from "react";
 
 export default function About() {
+  const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
+
   const technologies = [
     { name: "Flutter", description: "Cross-platform mobile framework", color: "text-blue-500" },
     { name: "Dart", description: "Programming language", color: "text-cyan-500" },
@@ -186,16 +190,14 @@ export default function About() {
                         View Project
                       </Button>
                     </a>
-                    <a 
-                      href="https://github.com/technicalwhitehat-yt/RhyThm-Music/releases/latest" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
+                    <Button 
+                      variant="outline" 
+                      className="border-gray-600"
+                      onClick={() => setIsDownloadModalOpen(true)}
                     >
-                      <Button variant="outline" className="border-gray-600">
-                        <Download className="mr-2" size={16} />
-                        Download
-                      </Button>
-                    </a>
+                      <Download className="mr-2" size={16} />
+                      Download
+                    </Button>
                   </div>
                 </CardContent>
               </Card>
@@ -303,20 +305,25 @@ export default function About() {
                   Contribute on GitHub
                 </Button>
               </a>
-              <a 
-                href="https://github.com/technicalwhitehat-yt/RhyThm-Music/releases/latest" 
-                target="_blank" 
-                rel="noopener noreferrer"
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="border-gray-600 text-lg px-8 py-4"
+                onClick={() => setIsDownloadModalOpen(true)}
               >
-                <Button variant="outline" size="lg" className="border-gray-600 text-lg px-8 py-4">
-                  <Download className="mr-2" size={20} />
-                  Download App
-                </Button>
-              </a>
+                <Download className="mr-2" size={20} />
+                Download App
+              </Button>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Download Modal */}
+      <DownloadModal 
+        isOpen={isDownloadModalOpen} 
+        onClose={() => setIsDownloadModalOpen(false)} 
+      />
     </div>
   );
 }

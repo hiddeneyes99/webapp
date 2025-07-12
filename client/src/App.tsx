@@ -9,11 +9,15 @@ import Features from "@/pages/discover";
 import About from "@/pages/about";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import DownloadModal from "@/components/ui/download-modal";
+import { useState } from "react";
 
 function Router() {
+  const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-black text-white flex flex-col">
-      <Header />
+      <Header onDownloadClick={() => setIsDownloadModalOpen(true)} />
       <main className="flex-1">
         <Switch>
           <Route path="/" component={Home} />
@@ -23,6 +27,12 @@ function Router() {
         </Switch>
       </main>
       <Footer />
+      
+      {/* Global Download Modal */}
+      <DownloadModal 
+        isOpen={isDownloadModalOpen} 
+        onClose={() => setIsDownloadModalOpen(false)} 
+      />
     </div>
   );
 }
