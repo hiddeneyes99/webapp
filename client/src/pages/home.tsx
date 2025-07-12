@@ -1,9 +1,12 @@
-import { Download, Github, Heart, Music, Smartphone, Monitor, Shield, Play, Volume2, Radio, Users, Palette, Navigation } from "lucide-react";
+import { useState } from "react";
+import { Download, Github, Heart, Music, Smartphone, Monitor, Shield, Play, Volume2, Radio, Users, Palette, Navigation, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import AppIcon from "@/components/ui/app-icon";
+import DownloadModal from "@/components/ui/download-modal";
 
 export default function Home() {
+  const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
   const features = [
     { icon: "🎵", title: "YouTube & YouTube Music Integration", description: "Play songs directly from YouTube and YouTube Music platforms" },
     { icon: "📦", title: "Song Cache While Playing", description: "Smart caching system for smooth playback experience" },
@@ -35,13 +38,13 @@ export default function Home() {
   ];
 
   return (
-    <div className="pt-20">
+    <div className="pt-20 animated-bg">
       {/* Hero Section */}
-      <section className="min-h-screen bg-gradient-to-br from-black via-purple-900/20 to-cyan-900/20 flex items-center">
+      <section className="min-h-screen flex items-center relative overflow-hidden">
         <div className="container mx-auto px-4 py-20">
           <div className="max-w-5xl mx-auto text-center">
             <div className="mb-8">
-              <AppIcon size="xl" className="mx-auto mb-8" useCustomIcon />
+              <AppIcon size="xl" className="mx-auto mb-8 logo-animate" useCustomIcon />
               <h1 className="text-6xl md:text-8xl font-bold mb-6 gradient-text">
                 Rhythm Music
               </h1>
@@ -49,7 +52,7 @@ export default function Home() {
                 Ad-Free Music Experience
               </h2>
               <h3 className="text-2xl md:text-3xl font-bold mb-8 text-white">
-                Made with <Heart className="inline text-red-500 animate-pulse mx-2" size={32} /> for someone special
+                Made with <Heart className="inline text-red-500 heart-pulse mx-2" size={32} /> for someone special
               </h3>
               <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
                 A cross-platform music streaming app that lets you enjoy unlimited music from YouTube & YouTube Music 
@@ -59,16 +62,14 @@ export default function Home() {
 
             {/* Download Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12">
-              <a 
-                href="https://github.com/technicalwhitehat-yt/RhyThm-Music/releases/latest" 
-                target="_blank" 
-                rel="noopener noreferrer"
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-purple-500 to-cyan-500 hover:shadow-xl text-lg px-8 py-4 download-btn"
+                onClick={() => setIsDownloadModalOpen(true)}
               >
-                <Button size="lg" className="bg-gradient-to-r from-purple-500 to-cyan-500 hover:shadow-xl text-lg px-8 py-4">
-                  <Download className="mr-2" size={20} />
-                  Download Now
-                </Button>
-              </a>
+                <Download className="mr-2" size={20} />
+                Download Now
+              </Button>
               <a 
                 href="https://github.com/technicalwhitehat-yt/RhyThm-Music" 
                 target="_blank" 
@@ -83,8 +84,8 @@ export default function Home() {
 
             {/* Platform Support */}
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-              {platforms.map(platform => (
-                <Card key={platform.name} className={`bg-gray-900/50 border-gray-700 ${platform.available ? 'hover:bg-gray-800/50' : 'opacity-60'}`}>
+              {platforms.map((platform, index) => (
+                <Card key={platform.name} className={`bg-gray-900/50 border-gray-700 platform-card ${platform.available ? 'hover:bg-gray-800/50' : 'opacity-60'}`}>
                   <CardContent className="p-4 text-center">
                     <platform.icon className={`mx-auto mb-2 ${platform.color}`} size={32} />
                     <h4 className="font-semibold text-sm">{platform.name}</h4>
@@ -99,6 +100,64 @@ export default function Home() {
         </div>
       </section>
 
+      {/* The Story Behind Rhythm */}
+      <section className="py-20 bg-gradient-to-br from-purple-900/30 via-black/50 to-cyan-900/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h3 className="text-4xl font-bold mb-8 gradient-text">
+              A Story of Passion & Unbreakable Motivation
+            </h3>
+            
+            <Card className="bg-gradient-to-br from-gray-900/80 to-black/80 border-gray-700/50 backdrop-blur-lg">
+              <CardContent className="p-8">
+                <div className="space-y-6 text-lg text-gray-300 leading-relaxed">
+                  <p>
+                    <strong className="text-white">Rhythm Music</strong> is not just an app — it's a story carved from sleepless nights, 
+                    countless failures, and one powerful reason: <span className="gradient-text font-semibold">build something special</span>.
+                  </p>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+                    <div className="text-center p-4 bg-red-500/10 rounded-lg border border-red-500/20">
+                      <div className="text-3xl font-bold text-red-400 mb-2">42</div>
+                      <div className="text-sm text-red-300">Build Failures</div>
+                    </div>
+                    <div className="text-center p-4 bg-purple-500/10 rounded-lg border border-purple-500/20">
+                      <div className="text-3xl font-bold text-purple-400 mb-2">180+</div>
+                      <div className="text-sm text-purple-300">Hours of Work</div>
+                    </div>
+                    <div className="text-center p-4 bg-cyan-500/10 rounded-lg border border-cyan-500/20">
+                      <div className="text-3xl font-bold text-cyan-400 mb-2">12</div>
+                      <div className="text-sm text-cyan-300">Days to Complete</div>
+                    </div>
+                  </div>
+                  
+                  <p>
+                    I didn't know how to build an app. I had never written a single line of code in app development. 
+                    And yet, I dared to dream. <span className="text-red-400 font-semibold">Why?</span>
+                  </p>
+                  
+                  <p className="text-xl font-semibold text-white">
+                    Because there was one person I deeply cared about. I wanted to build something special.
+                  </p>
+                  
+                  <div className="p-6 bg-gradient-to-r from-red-500/20 to-pink-500/20 rounded-lg border border-red-500/30 my-6">
+                    <p className="text-center italic text-lg">
+                      <Heart className="inline text-red-500 mr-2" size={20} />
+                      "If I can't do this for my own dream... then what is my dream worth?"
+                      <Heart className="inline text-red-500 ml-2" size={20} />
+                    </p>
+                  </div>
+                  
+                  <p>
+                    On the <strong className="text-green-400">43rd attempt</strong>, I did it. I beat the code. I crushed the failure. I won.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Key Features Highlight */}
       <section className="py-20 bg-gray-900/30">
         <div className="container mx-auto px-4">
@@ -108,25 +167,25 @@ export default function Home() {
             </h3>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-              <Card className="bg-gradient-to-br from-purple-500/20 to-transparent border-purple-500/30 backdrop-blur-sm">
+              <Card className="bg-gradient-to-br from-purple-500/20 to-transparent border-purple-500/30 backdrop-blur-sm feature-card">
                 <CardContent className="p-8 text-center">
-                  <Shield className="mx-auto text-4xl text-purple-400 mb-4" size={56} />
+                  <Shield className="mx-auto text-4xl text-purple-400 mb-4 feature-icon" size={56} />
                   <h4 className="text-xl font-semibold mb-3">100% Ad-Free</h4>
                   <p className="text-gray-400">Enjoy uninterrupted music streaming without any advertisements or distractions</p>
                 </CardContent>
               </Card>
               
-              <Card className="bg-gradient-to-br from-cyan-500/20 to-transparent border-cyan-500/30 backdrop-blur-sm">
+              <Card className="bg-gradient-to-br from-cyan-500/20 to-transparent border-cyan-500/30 backdrop-blur-sm feature-card">
                 <CardContent className="p-8 text-center">
-                  <Download className="mx-auto text-4xl text-cyan-400 mb-4" size={56} />
+                  <Download className="mx-auto text-4xl text-cyan-400 mb-4 feature-icon" size={56} />
                   <h4 className="text-xl font-semibold mb-3">Offline Downloads</h4>
                   <p className="text-gray-400">Download your favorite tracks and listen offline anytime, anywhere</p>
                 </CardContent>
               </Card>
               
-              <Card className="bg-gradient-to-br from-green-500/20 to-transparent border-green-500/30 backdrop-blur-sm">
+              <Card className="bg-gradient-to-br from-green-500/20 to-transparent border-green-500/30 backdrop-blur-sm feature-card">
                 <CardContent className="p-8 text-center">
-                  <Heart className="mx-auto text-4xl text-red-400 mb-4" size={56} />
+                  <Heart className="mx-auto text-4xl text-red-400 mb-4 feature-icon" size={56} />
                   <h4 className="text-xl font-semibold mb-3">No Login Required</h4>
                   <p className="text-gray-400">Start listening immediately without creating accounts or providing personal data</p>
                 </CardContent>
@@ -146,15 +205,69 @@ export default function Home() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {features.map((feature, index) => (
-                <Card key={index} className="bg-gray-900/50 hover:bg-gray-800/50 transition-colors">
+                <Card key={index} className="bg-gray-900/50 hover:bg-gray-800/50 feature-card">
                   <CardContent className="p-6">
-                    <div className="text-3xl mb-4">{feature.icon}</div>
+                    <div className="text-3xl mb-4 feature-icon">{feature.icon}</div>
                     <h5 className="font-semibold mb-2">{feature.title}</h5>
                     <p className="text-sm text-gray-400">{feature.description}</p>
                   </CardContent>
                 </Card>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Project Worth Section */}
+      <section className="py-20 bg-gradient-to-br from-green-900/30 to-blue-900/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h3 className="text-4xl font-bold mb-8 gradient-text">
+              A Gift, Not Just an App
+            </h3>
+            
+            <Card className="bg-gradient-to-br from-gray-900/80 to-black/80 border-gray-700/50 backdrop-blur-lg">
+              <CardContent className="p-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                  <div className="text-left">
+                    <h4 className="text-2xl font-bold mb-4 text-white">Actual Project Worth</h4>
+                    <p className="text-gray-300 mb-4">
+                      If you gave this project to an agency — they'd easily charge:
+                    </p>
+                    <div className="text-3xl font-bold gradient-text mb-2">
+                      ₹1.5 Lakh to ₹2 Lakh+
+                    </div>
+                    <p className="text-sm text-gray-400 mb-4">
+                      Team of Designers, Developers, Testers, Project Managers.
+                    </p>
+                    <p className="text-xl font-semibold text-green-400">
+                      But you're getting it for FREE
+                    </p>
+                    <p className="text-gray-300">
+                      Because this was made with something <strong className="text-red-400">money can't buy</strong> — emotion.
+                    </p>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <div className="p-4 bg-purple-500/10 rounded-lg border border-purple-500/30">
+                      <Zap className="text-purple-400 mb-2" size={24} />
+                      <div className="text-sm text-purple-300">Premium Features</div>
+                      <div className="text-xs text-gray-400">Completely Free</div>
+                    </div>
+                    <div className="p-4 bg-cyan-500/10 rounded-lg border border-cyan-500/30">
+                      <Heart className="text-red-400 mb-2" size={24} />
+                      <div className="text-sm text-cyan-300">Built with Love</div>
+                      <div className="text-xs text-gray-400">Priceless</div>
+                    </div>
+                    <div className="p-4 bg-green-500/10 rounded-lg border border-green-500/30">
+                      <Shield className="text-green-400 mb-2" size={24} />
+                      <div className="text-sm text-green-300">No Ads, No Fees</div>
+                      <div className="text-xs text-gray-400">Always Free</div>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -171,16 +284,14 @@ export default function Home() {
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-              <a 
-                href="https://github.com/technicalwhitehat-yt/RhyThm-Music/releases/latest" 
-                target="_blank" 
-                rel="noopener noreferrer"
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-purple-500 to-cyan-500 hover:shadow-xl text-lg px-8 py-4 download-btn"
+                onClick={() => setIsDownloadModalOpen(true)}
               >
-                <Button size="lg" className="bg-gradient-to-r from-purple-500 to-cyan-500 hover:shadow-xl text-lg px-8 py-4">
-                  <Download className="mr-2" size={20} />
-                  Download Latest Release
-                </Button>
-              </a>
+                <Download className="mr-2" size={20} />
+                Download Latest Release
+              </Button>
               <a 
                 href="https://github.com/technicalwhitehat-yt/RhyThm-Music" 
                 target="_blank" 
@@ -195,6 +306,12 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Download Modal */}
+      <DownloadModal 
+        isOpen={isDownloadModalOpen} 
+        onClose={() => setIsDownloadModalOpen(false)} 
+      />
     </div>
   );
 }
