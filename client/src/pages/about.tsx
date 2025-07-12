@@ -58,7 +58,7 @@ export default function About() {
               <CardContent className="p-8">
                 <div className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
                   <img 
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&h=200"
+                    src="/attached_assets/technical white hat 2.0_1752333903253.jpg"
                     alt="Technical White Hat - Software Developer" 
                     className="w-40 h-40 rounded-full object-cover shadow-lg" 
                   />
