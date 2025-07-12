@@ -150,9 +150,9 @@
   animation: bounce-slow 2s infinite;
 }
 
-/* Animated Background Gradient - Very Dark with Rhythm Logo Colors */
+/* Animated Background Gradient */
 .animated-bg {
-  background: linear-gradient(-45deg, #000000, #0a0a0a, #1a0626, #2d1b69, #1a0626, #0a0a0a, #000000);
+  background: linear-gradient(-45deg, #000000, #1a0a1a, #0a0a1a, #1a1a0a, #0a1a1a);
   background-size: 400% 400%;
   animation: gradientMove 15s ease infinite;
 }
