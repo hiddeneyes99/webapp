@@ -47,7 +47,7 @@ export default function Home() {
             <div className="mb-8">
               <AppIcon size="xl" className="mx-auto mb-8" useCustomIcon />
               <div className="flex flex-col items-center mb-6">
-                <AnimatedVisualizer className="mb-4" bars={5} />
+                <AnimatedVisualizer className="mb-4" bars={5} size="lg" />
                 <h1 className="text-6xl md:text-8xl font-bold gradient-text">
                   Rhythm Music
                 </h1>

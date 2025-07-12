@@ -3,6 +3,7 @@ import { Download, Menu, Home, Info, Github, Monitor } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import AppIcon from "@/components/ui/app-icon";
+import AnimatedVisualizer from "@/components/ui/animated-visualizer";
 import { cn } from "@/lib/utils";
 
 export default function Header() {
@@ -24,6 +25,7 @@ export default function Header() {
       <nav className="container mx-auto px-4 py-3 flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
           <AppIcon size="md" useCustomIcon />
+          <AnimatedVisualizer className="hidden sm:block" bars={3} />
           <div>
             <h1 className="text-xl font-bold gradient-text">Rhythm Music</h1>
             <p className="text-xs text-gray-400">by Technical White Hat</p>

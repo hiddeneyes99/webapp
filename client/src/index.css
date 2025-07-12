@@ -165,12 +165,12 @@
 
 /* Enhanced Gradient Text Animation */
 .gradient-text {
-  background: linear-gradient(-45deg, #a855f7, #06b6d4, #8b5cf6, #0891b2);
+  background: linear-gradient(-45deg, #a855f7, #06b6d4, #8b5cf6, #0891b2, #a855f7);
   background-size: 400% 400%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: gradientText 4s ease-in-out infinite;
+  animation: gradientText 3s ease-in-out infinite;
 }
 
 @keyframes gradientText {
