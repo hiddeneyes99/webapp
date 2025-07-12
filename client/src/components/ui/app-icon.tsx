@@ -24,11 +24,24 @@ export default function AppIcon({ className, size = "md", useCustomIcon = false 
 
   if (useCustomIcon) {
     return (
-      <img 
-        src={iconPath} 
-        alt="Rhythm Music App Icon" 
-        className={cn(sizeClasses[size], "rounded-xl shadow-lg", className)} 
-      />
+      <div className={cn(
+        sizeClasses[size],
+        "rounded-xl bg-gradient-to-br from-purple-500 to-cyan-500 flex items-center justify-center shadow-lg",
+        className
+      )}>
+        <div className="flex space-x-0.5 items-end">
+          {barSizes[size].map((barClass, index) => (
+            <div
+              key={index}
+              className={cn(
+                barClass,
+                "bg-white rounded-full waveform-bar"
+              )}
+              style={{ animationDelay: `${index * 0.1}s` }}
+            />
+          ))}
+        </div>
+      </div>
     );
   }
 

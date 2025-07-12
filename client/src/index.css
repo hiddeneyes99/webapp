@@ -150,11 +150,11 @@
   animation: bounce-slow 2s infinite;
 }
 
-/* Animated Background Gradient - Inspired by Rhythm Logo Colors */
+/* Animated Background Gradient - Rhythm Music Logo Colors */
 .animated-bg {
-  background: linear-gradient(-45deg, #000000, #1a0a2e, #16213e, #0f3460, #533a71);
+  background: linear-gradient(-45deg, #1a1a1a, #2d1b69, #3730a3, #7c3aed, #06b6d4, #8b5cf6);
   background-size: 400% 400%;
-  animation: gradientMove 15s ease infinite;
+  animation: gradientMove 12s ease infinite;
 }
 
 @keyframes gradientMove {
@@ -163,14 +163,14 @@
   100% { background-position: 0% 50%; }
 }
 
-/* Enhanced Gradient Text Animation */
+/* Enhanced Gradient Text Animation - Rhythm Music Colors */
 .gradient-text {
-  background: linear-gradient(-45deg, #a855f7, #06b6d4, #8b5cf6, #0891b2, #a855f7);
-  background-size: 400% 400%;
+  background: linear-gradient(-45deg, #7c3aed, #06b6d4, #8b5cf6, #3730a3, #06b6d4, #7c3aed);
+  background-size: 500% 500%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: gradientText 3s ease-in-out infinite;
+  animation: gradientText 4s ease-in-out infinite;
 }
 
 @keyframes gradientText {

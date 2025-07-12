@@ -25,7 +25,6 @@ export default function Header() {
       <nav className="container mx-auto px-4 py-3 flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
           <AppIcon size="md" useCustomIcon />
-          <AnimatedVisualizer className="hidden sm:block" bars={3} />
           <div>
             <h1 className="text-xl font-bold gradient-text">Rhythm Music</h1>
             <p className="text-xs text-gray-400">by Technical White Hat</p>
