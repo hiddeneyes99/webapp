@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Search, Menu, Home, Compass, Library, Info } from "lucide-react";
+import { Download, Menu, Home, Info, Github, Monitor } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import AppIcon from "@/components/ui/app-icon";
@@ -10,8 +10,7 @@ export default function Header() {
 
   const navigation = [
     { href: "/", label: "Home", icon: Home },
-    { href: "/discover", label: "Discover", icon: Compass },
-    { href: "/library", label: "Library", icon: Library },
+    { href: "/features", label: "Features", icon: Monitor },
     { href: "/about", label: "About", icon: Info },
   ];
 
@@ -24,7 +23,7 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-lg border-b border-gray-800">
       <nav className="container mx-auto px-4 py-3 flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
-          <AppIcon size="md" />
+          <AppIcon size="md" useCustomIcon />
           <div>
             <h1 className="text-xl font-bold gradient-text">Rhythm Music</h1>
             <p className="text-xs text-gray-400">by Technical White Hat</p>
@@ -48,9 +47,26 @@ export default function Header() {
         </div>
 
         <div className="flex items-center space-x-3">
-          <Button variant="ghost" size="icon" className="hover:bg-gray-800">
-            <Search size={18} />
-          </Button>
+          <a 
+            href="https://github.com/technicalwhitehat-yt/RhyThm-Music/releases/latest" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            <Button size="sm" className="bg-gradient-to-r from-purple-500 to-cyan-500 hover:shadow-lg hidden md:flex">
+              <Download size={16} className="mr-2" />
+              Download
+            </Button>
+          </a>
+          
+          <a 
+            href="https://github.com/technicalwhitehat-yt/RhyThm-Music" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            <Button variant="ghost" size="icon" className="hover:bg-gray-800">
+              <Github size={18} />
+            </Button>
+          </a>
           
           <Sheet>
             <SheetTrigger asChild>
@@ -73,6 +89,26 @@ export default function Header() {
                     </span>
                   </Link>
                 ))}
+                <div className="pt-4 border-t border-gray-700">
+                  <a 
+                    href="https://github.com/technicalwhitehat-yt/RhyThm-Music/releases/latest" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors text-gray-400 hover:text-cyan-400"
+                  >
+                    <Download size={20} />
+                    <span>Download App</span>
+                  </a>
+                  <a 
+                    href="https://github.com/technicalwhitehat-yt/RhyThm-Music" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors text-gray-400 hover:text-cyan-400"
+                  >
+                    <Github size={20} />
+                    <span>GitHub</span>
+                  </a>
+                </div>
               </div>
             </SheetContent>
           </Sheet>

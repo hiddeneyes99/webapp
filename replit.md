@@ -1,8 +1,8 @@
-# Rhythm Music - Full-Stack Music Streaming Application
+# Rhythm Music - Official Website & App Information
 
 ## Overview
 
-Rhythm Music is a modern, ad-free music streaming application built with React, Express.js, and PostgreSQL. It provides a YouTube Music-like experience with features for discovering, playing, and managing music libraries. The application follows a full-stack architecture with clear separation between client and server components.
+Rhythm Music is the official promotional website for the Rhythm Music application - an open-source, ad-free music streaming app created by Technical White Hat. This website provides comprehensive information about the app, download links, feature descriptions, and serves as the main landing page for users interested in the Rhythm Music application. The website showcases the app's capabilities and directs users to download the actual mobile/desktop application.
 
 ## System Architecture
 
@@ -39,26 +39,28 @@ The application uses a well-structured relational database with the following ma
 - **User Library**: Personal music library with liked songs and downloads
 - **Playlist Songs**: Junction table for playlist-song relationships
 
-### API Structure
-RESTful API endpoints organized by resource:
-- `/api/songs` - Song management and search
-- `/api/playlists` - Playlist operations
-- `/api/library` - User library management
-- Authentication and user management (ready for implementation)
+### Website Structure
+Static promotional website with the following sections:
+- **Homepage**: App introduction, download CTAs, platform support showcase
+- **Features Page**: Complete feature list, screenshots, system requirements
+- **About Page**: Creator story, project heritage, technical information
+- **Navigation**: Streamlined menu focused on app promotion and downloads
+- **External Links**: Direct links to GitHub repository and app releases
 
-### Frontend Components
-- **Layout Components**: Header with navigation, Footer with branding
-- **Music Components**: Player controls, Song items, Playlist cards, Waveform visualizations
-- **UI Components**: Comprehensive design system based on Shadcn/ui
-- **Pages**: Home, Discover, Library, About with responsive design
+### Website Pages
+- **Home Page**: Hero section with app overview, download links, platform support, feature highlights
+- **Features Page**: Comprehensive showcase of all app features, screenshots, system requirements
+- **About Page**: Creator information, project history, open-source credits, technical details
+- **Layout Components**: Header with download links, Footer with comprehensive links and information
+- **UI Components**: Comprehensive design system based on Shadcn/ui with custom app icon integration
 
-## Data Flow
+## Website Flow
 
-1. **User Interaction**: Users interact with React components in the browser
-2. **API Requests**: TanStack React Query manages HTTP requests to the Express backend
-3. **Server Processing**: Express routes handle business logic and data validation
-4. **Database Operations**: Drizzle ORM executes type-safe database queries
-5. **Response Flow**: Data flows back through the same path with proper error handling
+1. **User Landing**: Users arrive at the promotional website to learn about Rhythm Music
+2. **Information Discovery**: Browse features, view screenshots, read about the creator
+3. **Download Action**: Click download buttons that redirect to GitHub releases
+4. **External Navigation**: Links to GitHub repository, documentation, and community resources
+5. **App Installation**: Users download and install the actual Rhythm Music application
 
 ## External Dependencies
 
@@ -69,10 +71,11 @@ RESTful API endpoints organized by resource:
 - **Database**: PostgreSQL, Neon Database serverless driver
 - **Development**: TypeScript, ESBuild for production builds
 
-### Third-Party Integrations
-- **YouTube Integration**: Planned for music streaming and metadata
-- **Neon Database**: Serverless PostgreSQL hosting
-- **Replit**: Development environment integration
+### External Integrations
+- **GitHub Repository**: Links to https://github.com/technicalwhitehat-yt/RhyThm-Music for source code
+- **GitHub Releases**: Download links point to latest releases
+- **Harmony Music Credit**: Acknowledgment of original project at https://github.com/anandnet/Harmony-Music
+- **Custom App Icon**: Integration of user-provided Rhythm Music app icon
 
 ## Deployment Strategy
 
@@ -99,10 +102,17 @@ RESTful API endpoints organized by resource:
 ```
 Changelog:
 - July 08, 2025. Initial setup
+- July 12, 2025. Transformed from music streaming app to promotional website for Rhythm Music app
 ```
 
 ## User Preferences
 
 ```
 Preferred communication style: Simple, everyday language.
+Project Type: Official website for Rhythm Music app (not a music streaming web app)
+GitHub Repository: https://github.com/technicalwhitehat-yt/RhyThm-Music
+Creator Credit: Technical White Hat
+Original Project Credit: Harmony Music (without direct links, just acknowledgment)
+App Features: Complete feature list provided by user including YouTube/YouTube Music integration, ad-free experience, offline downloads, etc.
+Special Dedication: App built for someone very special
 ```

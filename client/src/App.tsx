@@ -5,12 +5,10 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
-import Discover from "@/pages/discover";
-import Library from "@/pages/library";
+import Features from "@/pages/discover";
 import About from "@/pages/about";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
-import MusicPlayer from "@/components/music/player";
 
 function Router() {
   return (
@@ -19,14 +17,12 @@ function Router() {
       <main className="flex-1">
         <Switch>
           <Route path="/" component={Home} />
-          <Route path="/discover" component={Discover} />
-          <Route path="/library" component={Library} />
+          <Route path="/features" component={Features} />
           <Route path="/about" component={About} />
           <Route component={NotFound} />
         </Switch>
       </main>
       <Footer />
-      <MusicPlayer />
     </div>
   );
 }

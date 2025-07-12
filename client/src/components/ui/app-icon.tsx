@@ -1,11 +1,13 @@
 import { cn } from "@/lib/utils";
+import iconPath from "@assets/icon_1751963872011.png";
 
 interface AppIconProps {
   className?: string;
   size?: "sm" | "md" | "lg" | "xl";
+  useCustomIcon?: boolean;
 }
 
-export default function AppIcon({ className, size = "md" }: AppIconProps) {
+export default function AppIcon({ className, size = "md", useCustomIcon = false }: AppIconProps) {
   const sizeClasses = {
     sm: "w-8 h-8",
     md: "w-10 h-10",
@@ -19,6 +21,16 @@ export default function AppIcon({ className, size = "md" }: AppIconProps) {
     lg: ["w-1 h-5", "w-1 h-7", "w-1 h-9", "w-1 h-7", "w-1 h-5"],
     xl: ["w-1.5 h-6", "w-1.5 h-8", "w-1.5 h-12", "w-1.5 h-8", "w-1.5 h-6"]
   };
+
+  if (useCustomIcon) {
+    return (
+      <img 
+        src={iconPath} 
+        alt="Rhythm Music App Icon" 
+        className={cn(sizeClasses[size], "rounded-xl shadow-lg", className)} 
+      />
+    );
+  }
 
   return (
     <div className={cn(
