@@ -44,21 +44,21 @@ export default function Home() {
       <section className="min-h-screen bg-gradient-to-br from-black via-purple-900/20 to-cyan-900/20 flex items-center">
         <div className="container mx-auto px-4 py-20">
           <div className="max-w-5xl mx-auto text-center">
-            <div className="mb-8">
-              <AppIcon size="xl" className="mx-auto mb-8" useCustomIcon />
-              <div className="flex flex-col items-center mb-6">
-                <AnimatedVisualizer className="mb-4" bars={5} size="lg" />
-                <h1 className="text-6xl md:text-8xl font-bold gradient-text">
+            <div className="mb-6 sm:mb-8">
+              <AppIcon size="xl" className="mx-auto mb-6 sm:mb-8" useCustomIcon />
+              <div className="flex flex-col items-center mb-4 sm:mb-6">
+                <AnimatedVisualizer className="mb-3 sm:mb-4" bars={5} size="lg" />
+                <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold gradient-text">
                   Rhythm Music
                 </h1>
               </div>
-              <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 sm:mb-6 text-white">
                 Ad-Free Music Experience
               </h2>
-              <h3 className="text-2xl md:text-3xl font-bold mb-8 text-white">
-                Made with <Heart className="inline text-red-500 heart-pulse mx-2" size={32} /> for someone special
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 sm:mb-8 text-white">
+                Made with <Heart className="inline text-red-500 heart-pulse mx-1 sm:mx-2" size={24} /> for someone special
               </h3>
-              <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+              <p className="text-base sm:text-xl text-gray-300 mb-6 sm:mb-8 max-w-3xl mx-auto px-4">
                 A cross-platform music streaming app that lets you enjoy unlimited music from YouTube & YouTube Music 
                 without advertisements. Built with passion by Technical White Hat.
               </p>
@@ -68,31 +68,32 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12">
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-purple-500 to-cyan-500 hover:shadow-xl text-lg px-8 py-4 download-btn"
+                className="bg-gradient-to-r from-purple-500 to-cyan-500 hover:shadow-xl text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 download-btn w-full sm:w-auto"
                 onClick={() => setIsDownloadModalOpen(true)}
               >
-                <Download className="mr-2" size={20} />
+                <Download className="mr-2" size={18} />
                 Download Now
               </Button>
               <a 
                 href="https://github.com/technicalwhitehat-yt/RhyThm-Music" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                className="w-full sm:w-auto"
               >
-                <Button variant="outline" size="lg" className="border-gray-600 text-lg px-8 py-4">
-                  <Github className="mr-2" size={20} />
+                <Button variant="outline" size="lg" className="border-gray-600 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 w-full">
+                  <Github className="mr-2" size={18} />
                   View Source Code
                 </Button>
               </a>
             </div>
 
             {/* Platform Support */}
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4">
               {platforms.map((platform, index) => (
                 <Card key={platform.name} className={`bg-gray-900/50 border-gray-700 platform-card ${platform.available ? 'hover:bg-gray-800/50' : 'opacity-60'}`}>
-                  <CardContent className="p-4 text-center">
-                    <platform.icon className={`mx-auto mb-2 ${platform.color}`} size={32} />
-                    <h4 className="font-semibold text-sm">{platform.name}</h4>
+                  <CardContent className="p-3 sm:p-4 text-center">
+                    <platform.icon className={`mx-auto mb-1 sm:mb-2 ${platform.color}`} size={28} />
+                    <h4 className="font-semibold text-xs sm:text-sm">{platform.name}</h4>
                     <p className="text-xs text-gray-400 mt-1">
                       {platform.available ? 'Available' : 'Coming Soon'}
                     </p>
@@ -106,36 +107,89 @@ export default function Home() {
 
 
 
+      {/* Detailed App Description */}
+      <section className="py-16 sm:py-20 bg-gradient-to-br from-blue-900/20 via-purple-900/30 to-indigo-900/20 relative overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute top-8 left-8 w-20 h-20 bg-blue-500/10 rounded-full blur-lg"></div>
+        <div className="absolute bottom-8 right-8 w-32 h-32 bg-purple-500/10 rounded-full blur-xl"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <h3 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8 gradient-text">
+              What is Rhythm Music?
+            </h3>
+            
+            <Card className="bg-gradient-to-br from-gray-900/80 to-black/80 border-gray-700/50 backdrop-blur-lg">
+              <CardContent className="p-6 sm:p-8">
+                <div className="space-y-4 sm:space-y-6 text-sm sm:text-base text-gray-300 leading-relaxed">
+                  <p className="text-base sm:text-lg font-semibold text-white">
+                    Rhythm Music is a revolutionary, completely free music streaming application that brings you unlimited access to millions of songs without any limitations.
+                  </p>
+                  
+                  <p>
+                    Built from the ground up by <span className="text-purple-400 font-semibold">Technical White Hat</span>, this app connects directly to YouTube Music's vast library, giving you access to every song, album, and playlist you could ever want - all without a single advertisement interrupting your music experience.
+                  </p>
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 my-6 sm:my-8">
+                    <div className="text-center p-3 sm:p-4 bg-purple-500/10 rounded-lg border border-purple-500/20">
+                      <div className="text-2xl sm:text-3xl font-bold text-purple-400 mb-1 sm:mb-2">100%</div>
+                      <div className="text-xs sm:text-sm text-purple-300">Ad-Free</div>
+                    </div>
+                    <div className="text-center p-3 sm:p-4 bg-cyan-500/10 rounded-lg border border-cyan-500/20">
+                      <div className="text-2xl sm:text-3xl font-bold text-cyan-400 mb-1 sm:mb-2">∞</div>
+                      <div className="text-xs sm:text-sm text-cyan-300">Unlimited Music</div>
+                    </div>
+                    <div className="text-center p-3 sm:p-4 bg-green-500/10 rounded-lg border border-green-500/20">
+                      <div className="text-2xl sm:text-3xl font-bold text-green-400 mb-1 sm:mb-2">FREE</div>
+                      <div className="text-xs sm:text-sm text-green-300">Forever</div>
+                    </div>
+                  </div>
+                  
+                  <p>
+                    Unlike other music apps that require subscriptions, registrations, or bombard you with ads, Rhythm Music respects your time and privacy. Simply download, install, and start listening to your favorite music immediately.
+                  </p>
+                  
+                  <p className="text-base sm:text-lg font-semibold text-white">
+                    <Heart className="inline text-red-500 mr-2" size={20} />
+                    This isn't just an app - it's a gift to music lovers everywhere, built with genuine passion and dedication.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Key Features Highlight */}
-      <section className="py-20 bg-gray-900/30">
+      <section className="py-16 sm:py-20 bg-gray-900/30">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h3 className="text-4xl font-bold text-center mb-12 gradient-text">
+            <h3 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 gradient-text">
               Why Choose Rhythm Music?
             </h3>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
               <Card className="bg-gradient-to-br from-purple-500/20 to-transparent border-purple-500/30 backdrop-blur-sm feature-card">
-                <CardContent className="p-8 text-center">
-                  <Shield className="mx-auto text-4xl text-purple-400 mb-4 feature-icon" size={56} />
-                  <h4 className="text-xl font-semibold mb-3">100% Ad-Free</h4>
-                  <p className="text-gray-400">Enjoy uninterrupted music streaming without any advertisements or distractions</p>
+                <CardContent className="p-6 sm:p-8 text-center">
+                  <Shield className="mx-auto text-3xl sm:text-4xl text-purple-400 mb-3 sm:mb-4 feature-icon" size={48} />
+                  <h4 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">100% Ad-Free</h4>
+                  <p className="text-sm sm:text-base text-gray-400">Enjoy uninterrupted music streaming without any advertisements or distractions</p>
                 </CardContent>
               </Card>
               
               <Card className="bg-gradient-to-br from-cyan-500/20 to-transparent border-cyan-500/30 backdrop-blur-sm feature-card">
-                <CardContent className="p-8 text-center">
-                  <Download className="mx-auto text-4xl text-cyan-400 mb-4 feature-icon" size={56} />
-                  <h4 className="text-xl font-semibold mb-3">Offline Downloads</h4>
-                  <p className="text-gray-400">Download your favorite tracks and listen offline anytime, anywhere</p>
+                <CardContent className="p-6 sm:p-8 text-center">
+                  <Download className="mx-auto text-3xl sm:text-4xl text-cyan-400 mb-3 sm:mb-4 feature-icon" size={48} />
+                  <h4 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Offline Downloads</h4>
+                  <p className="text-sm sm:text-base text-gray-400">Download your favorite tracks and listen offline anytime, anywhere</p>
                 </CardContent>
               </Card>
               
               <Card className="bg-gradient-to-br from-green-500/20 to-transparent border-green-500/30 backdrop-blur-sm feature-card">
-                <CardContent className="p-8 text-center">
-                  <Heart className="mx-auto text-4xl text-red-400 mb-4 feature-icon" size={56} />
-                  <h4 className="text-xl font-semibold mb-3">No Login Required</h4>
-                  <p className="text-gray-400">Start listening immediately without creating accounts or providing personal data</p>
+                <CardContent className="p-6 sm:p-8 text-center">
+                  <Heart className="mx-auto text-3xl sm:text-4xl text-red-400 mb-3 sm:mb-4 feature-icon" size={48} />
+                  <h4 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">No Login Required</h4>
+                  <p className="text-sm sm:text-base text-gray-400">Start listening immediately without creating accounts or providing personal data</p>
                 </CardContent>
               </Card>
             </div>
