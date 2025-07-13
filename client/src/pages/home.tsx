@@ -104,63 +104,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* The Story Behind Rhythm */}
-      <section className="py-20 bg-gradient-to-br from-purple-900/30 via-black/50 to-cyan-900/30">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-4xl font-bold mb-8 gradient-text">
-              A Story of Passion & Unbreakable Motivation
-            </h3>
-            
-            <Card className="bg-gradient-to-br from-gray-900/80 to-black/80 border-gray-700/50 backdrop-blur-lg">
-              <CardContent className="p-8">
-                <div className="space-y-6 text-lg text-gray-300 leading-relaxed">
-                  <p>
-                    <strong className="text-white">Rhythm Music</strong> is not just an app — it's a story carved from sleepless nights, 
-                    countless failures, and one powerful reason: <span className="gradient-text font-semibold">build something special</span>.
-                  </p>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
-                    <div className="text-center p-4 bg-red-500/10 rounded-lg border border-red-500/20">
-                      <div className="text-3xl font-bold text-red-400 mb-2">42</div>
-                      <div className="text-sm text-red-300">Build Failures</div>
-                    </div>
-                    <div className="text-center p-4 bg-purple-500/10 rounded-lg border border-purple-500/20">
-                      <div className="text-3xl font-bold text-purple-400 mb-2">180+</div>
-                      <div className="text-sm text-purple-300">Hours of Work</div>
-                    </div>
-                    <div className="text-center p-4 bg-cyan-500/10 rounded-lg border border-cyan-500/20">
-                      <div className="text-3xl font-bold text-cyan-400 mb-2">12</div>
-                      <div className="text-sm text-cyan-300">Days to Complete</div>
-                    </div>
-                  </div>
-                  
-                  <p>
-                    I didn't know how to build an app. I had never written a single line of code in app development. 
-                    And yet, I dared to dream. <span className="text-red-400 font-semibold">Why?</span>
-                  </p>
-                  
-                  <p className="text-xl font-semibold text-white">
-                    Because there was one person I deeply cared about. I wanted to build something special.
-                  </p>
-                  
-                  <div className="p-6 bg-gradient-to-r from-red-500/20 to-pink-500/20 rounded-lg border border-red-500/30 my-6">
-                    <p className="text-center italic text-lg">
-                      <Heart className="inline text-red-500 mr-2" size={20} />
-                      "If I can't do this for my own dream... then what is my dream worth?"
-                      <Heart className="inline text-red-500 ml-2" size={20} />
-                    </p>
-                  </div>
-                  
-                  <p>
-                    On the <strong className="text-green-400">43rd attempt</strong>, I did it. I beat the code. I crushed the failure. I won.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
+
 
       {/* Key Features Highlight */}
       <section className="py-20 bg-gray-900/30">
@@ -312,6 +256,64 @@ export default function Home() {
                 </Button>
               </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* The Story Behind Rhythm */}
+      <section className="py-20 bg-gradient-to-br from-purple-900/30 via-black/50 to-cyan-900/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h3 className="text-4xl font-bold mb-8 gradient-text">
+              A Story of Passion & Unbreakable Motivation
+            </h3>
+            
+            <Card className="bg-gradient-to-br from-gray-900/80 to-black/80 border-gray-700/50 backdrop-blur-lg">
+              <CardContent className="p-8">
+                <div className="space-y-6 text-lg text-gray-300 leading-relaxed">
+                  <p>
+                    <strong className="text-white">Rhythm Music</strong> is not just an app — it's a story carved from sleepless nights, 
+                    countless failures, and one powerful reason: <span className="gradient-text font-semibold">build something special</span>.
+                  </p>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+                    <div className="text-center p-4 bg-red-500/10 rounded-lg border border-red-500/20">
+                      <div className="text-3xl font-bold text-red-400 mb-2">42</div>
+                      <div className="text-sm text-red-300">Build Failures</div>
+                    </div>
+                    <div className="text-center p-4 bg-purple-500/10 rounded-lg border border-purple-500/20">
+                      <div className="text-3xl font-bold text-purple-400 mb-2">180+</div>
+                      <div className="text-sm text-purple-300">Hours of Work</div>
+                    </div>
+                    <div className="text-center p-4 bg-cyan-500/10 rounded-lg border border-cyan-500/20">
+                      <div className="text-3xl font-bold text-cyan-400 mb-2">12</div>
+                      <div className="text-sm text-cyan-300">Days to Complete</div>
+                    </div>
+                  </div>
+                  
+                  <p>
+                    I didn't know how to build an app. I had never written a single line of code in app development. 
+                    And yet, I dared to dream. <span className="text-red-400 font-semibold">Why?</span>
+                  </p>
+                  
+                  <p className="text-xl font-semibold text-white">
+                    Because there was one person I deeply cared about. I wanted to build something special.
+                  </p>
+                  
+                  <div className="p-6 bg-gradient-to-r from-red-500/20 to-pink-500/20 rounded-lg border border-red-500/30 my-6">
+                    <p className="text-center italic text-lg">
+                      <Heart className="inline text-red-500 mr-2" size={20} />
+                      "If I can't do this for my own dream... then what is my dream worth?"
+                      <Heart className="inline text-red-500 ml-2" size={20} />
+                    </p>
+                  </div>
+                  
+                  <p>
+                    On the <strong className="text-green-400">43rd attempt</strong>, I did it. I beat the code. I crushed the failure. I won.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
