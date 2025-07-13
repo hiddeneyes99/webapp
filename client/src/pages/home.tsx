@@ -225,40 +225,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Download CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-purple-900/30 to-cyan-900/30">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-4xl font-bold mb-6 gradient-text">
-              Ready to Experience Ad-Free Music?
-            </h3>
-            <p className="text-xl text-gray-300 mb-8">
-              Download Rhythm Music now and enjoy unlimited music streaming without interruptions.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-              <Button 
-                size="lg" 
-                className="bg-gradient-to-r from-purple-500 to-cyan-500 hover:shadow-xl text-lg px-8 py-4 download-btn"
-                onClick={() => setIsDownloadModalOpen(true)}
-              >
-                <Download className="mr-2" size={20} />
-                Download Latest Release
-              </Button>
-              <a 
-                href="https://github.com/technicalwhitehat-yt/RhyThm-Music" 
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                <Button variant="outline" size="lg" className="border-gray-600 text-lg px-8 py-4">
-                  <Github className="mr-2" size={20} />
-                  View on GitHub
-                </Button>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* The Story Behind Rhythm */}
       <section className="py-20 bg-gradient-to-br from-purple-900/30 via-black/50 to-cyan-900/30">
@@ -314,6 +281,41 @@ export default function Home() {
                 </div>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Download CTA Section */}
+      <section className="py-20 bg-gradient-to-br from-purple-900/30 to-cyan-900/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h3 className="text-4xl font-bold mb-6 gradient-text">
+              Ready to Experience Ad-Free Music?
+            </h3>
+            <p className="text-xl text-gray-300 mb-8">
+              Download Rhythm Music now and enjoy unlimited music streaming without interruptions.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-purple-500 to-cyan-500 hover:shadow-xl text-lg px-8 py-4 download-btn"
+                onClick={() => setIsDownloadModalOpen(true)}
+              >
+                <Download className="mr-2" size={20} />
+                Download Latest Release
+              </Button>
+              <a 
+                href="https://github.com/technicalwhitehat-yt/RhyThm-Music" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <Button variant="outline" size="lg" className="border-gray-600 text-lg px-8 py-4">
+                  <Github className="mr-2" size={20} />
+                  View on GitHub
+                </Button>
+              </a>
+            </div>
           </div>
         </div>
       </section>
