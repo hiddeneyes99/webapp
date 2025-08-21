@@ -55,7 +55,7 @@ export default function MusicPlayer({ className, forceMinimized }: PlayerProps) 
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3 flex-1 min-w-0">
               <img 
-                src={displayTrack.thumbnailUrl || "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop"}
+                src={technical_white_hat_2_0_1752333903253}
                 alt="Currently playing album cover" 
                 className="w-12 h-12 rounded-lg object-cover" 
               />
