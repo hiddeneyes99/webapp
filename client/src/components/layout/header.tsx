@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import AppIcon from "@/components/ui/app-icon";
 import AnimatedVisualizer from "@/components/ui/animated-visualizer";
+import SocialLinks from "@/components/ui/social-links";
 import { cn } from "@/lib/utils";
 
 interface HeaderProps {
@@ -110,6 +111,14 @@ export default function Header({ onDownloadClick }: HeaderProps) {
                     <Github size={20} />
                     <span>GitHub</span>
                   </a>
+                </div>
+                
+                {/* Social Media Links */}
+                <div className="pt-4 border-t border-gray-700">
+                  <div className="px-4 mb-3">
+                    <h4 className="text-sm font-semibold text-gray-300 mb-3">Follow Technical White Hat</h4>
+                    <SocialLinks variant="compact" size="sm" showLabels={false} className="justify-start" />
+                  </div>
                 </div>
               </div>
             </SheetContent>
