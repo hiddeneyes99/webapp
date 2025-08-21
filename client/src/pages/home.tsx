@@ -95,11 +95,16 @@ export default function Home() {
             </div>
 
             {/* Social Media Follow Section */}
-            <div className="mb-8">
-              <h4 className="text-lg sm:text-xl font-semibold mb-4 text-gray-300">
-                🚀 Follow Technical White Hat for Updates
-              </h4>
-              <SocialLinks variant="inline" size="md" className="justify-center" />
+            <div className="mb-12 p-6 rounded-2xl bg-gradient-to-r from-purple-900/20 to-cyan-900/20 border border-purple-500/30 backdrop-blur-sm">
+              <div className="text-center">
+                <h4 className="text-xl sm:text-2xl font-bold mb-2 gradient-text">
+                  🚀 Follow for Latest Updates
+                </h4>
+                <p className="text-sm sm:text-base text-gray-400 mb-6 max-w-2xl mx-auto">
+                  Stay connected for new releases, tutorials, and exclusive tech content
+                </p>
+                <SocialLinks variant="inline" size="md" className="justify-center" />
+              </div>
             </div>
 
             {/* Platform Support */}

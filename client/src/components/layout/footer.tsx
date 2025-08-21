@@ -105,10 +105,10 @@ export default function Footer() {
 
           {/* Social Media Section */}
           <div className="border-t border-gray-800 pt-8 pb-6">
-            <div className="text-center">
-              <h5 className="font-semibold text-white mb-4 text-lg">Follow Technical White Hat</h5>
-              <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
-                Stay updated with the latest releases, tutorials, and tech content. Follow on your favorite platform!
+            <div className="text-center p-8 rounded-2xl bg-gradient-to-r from-purple-900/20 to-cyan-900/20 border border-purple-500/20">
+              <h5 className="font-bold text-white mb-2 text-xl gradient-text">Follow Technical White Hat</h5>
+              <p className="text-gray-400 mb-8 max-w-2xl mx-auto text-lg">
+                🌟 Stay updated with the latest releases, tutorials, and tech content. Follow on your favorite platform!
               </p>
               <SocialLinks variant="footer" showLabels={true} size="md" />
             </div>
