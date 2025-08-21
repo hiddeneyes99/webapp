@@ -16,7 +16,7 @@ export default function BlessingModal({ isOpen: externalIsOpen, onClose: externa
     if (externalIsOpen === undefined && externalOnClose === undefined) {
       const timer = setTimeout(() => {
         setIsOpen(true);
-      }, 1000); // Show after 1 second delay
+      }, 800); // Show after 0.8 second delay
       return () => clearTimeout(timer);
     }
   }, [externalIsOpen, externalOnClose]);
@@ -34,10 +34,8 @@ export default function BlessingModal({ isOpen: externalIsOpen, onClose: externa
   return (
     <Dialog open={modalIsOpen} onOpenChange={handleClose}>
       <DialogContent 
-        className="max-w-md mx-auto bg-gradient-to-br from-purple-900/95 via-purple-800/95 to-indigo-900/95 
-                   backdrop-blur-xl border-2 border-purple-500/30 rounded-3xl shadow-2xl 
-                   shadow-purple-500/20 text-white p-0 overflow-hidden animate-in fade-in-0 
-                   zoom-in-95 duration-500"
+        className="max-w-lg mx-auto relative overflow-hidden rounded-3xl p-0 border-0 shadow-none
+                   blessing-modal-enter rainbow-glow-animation"
         data-testid="blessing-modal"
       >
         {/* Hidden title and description for accessibility */}
@@ -46,79 +44,126 @@ export default function BlessingModal({ isOpen: externalIsOpen, onClose: externa
           Information about Rhythm Music app and dedication message
         </DialogDescription>
 
+        {/* Animated background with multiple gradients */}
+        <div className="absolute inset-0 bg-gradient-to-br from-violet-900 via-purple-900 to-fuchsia-900 opacity-95"></div>
+        <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/20 via-transparent to-pink-500/20 animate-pulse"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(147,51,234,0.3),transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(236,72,153,0.3),transparent_50%)]"></div>
+        
+        {/* Floating particles */}
+        <div className="absolute top-10 left-10 w-2 h-2 bg-yellow-300 rounded-full animate-ping opacity-75"></div>
+        <div className="absolute top-16 right-16 w-1 h-1 bg-cyan-300 rounded-full animate-pulse"></div>
+        <div className="absolute bottom-20 left-20 w-1.5 h-1.5 bg-pink-300 rounded-full animate-bounce"></div>
+        <div className="absolute bottom-16 right-12 w-1 h-1 bg-purple-300 rounded-full animate-ping delay-500"></div>
+
         {/* Close button */}
         <button
           onClick={handleClose}
-          className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/20 hover:bg-black/40 
-                     transition-colors duration-200 group"
+          className="absolute top-5 right-5 z-20 p-2.5 rounded-full 
+                     bg-gradient-to-r from-red-500/20 to-pink-500/20 backdrop-blur-sm
+                     hover:from-red-500/40 hover:to-pink-500/40 transition-all duration-300 
+                     border border-white/20 hover:border-white/40 group hover:scale-110"
           data-testid="button-close-modal"
           aria-label="Close modal"
         >
-          <X className="w-5 h-5 text-white/70 group-hover:text-white transition-colors" />
+          <X className="w-5 h-5 text-white/80 group-hover:text-white transition-colors rotate-0 group-hover:rotate-90 transition-transform duration-300" />
         </button>
 
-        {/* Content */}
-        <div className="p-8 pt-12">
-          {/* Header with sparkle animation */}
-          <div className="text-center mb-6">
-            <div className="relative">
-              <h2 className="text-2xl font-bold bg-gradient-to-r from-purple-300 via-pink-300 to-purple-300 
-                             bg-clip-text text-transparent mb-2 animate-pulse">
-                ✨ About Rhythm ✨
+        {/* Main content */}
+        <div className="relative z-10 p-10 pt-14">
+          {/* Animated header */}
+          <div className="text-center mb-8 relative">
+            <div className="relative inline-block">
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-yellow-300 via-pink-300 to-cyan-300 
+                             bg-clip-text text-transparent mb-3 animate-pulse">
+                <span className="inline-block animate-bounce">✨</span>
+                {" About Rhythm "}
+                <span className="inline-block animate-bounce delay-100">✨</span>
               </h2>
-              <div className="absolute -top-2 -right-2 text-yellow-300 animate-bounce delay-100">⭐</div>
-              <div className="absolute -top-1 -left-3 text-purple-300 animate-bounce delay-300">💫</div>
+              
+              {/* Floating decorative elements around title */}
+              <div className="absolute -top-3 -right-6 text-2xl sparkle-float-animation text-yellow-300">⭐</div>
+              <div className="absolute -top-2 -left-6 text-xl gentle-float-animation text-purple-300">💫</div>
+              <div className="absolute -bottom-2 right-2 text-sm animate-pulse delay-500 text-cyan-300">🌟</div>
             </div>
-          </div>
-
-          {/* Main message */}
-          <div className="space-y-4 text-center leading-relaxed">
-            <p className="text-purple-100 text-lg">
-              This app is built with{" "}
-              <span className="text-red-300 animate-pulse inline-block">❤️</span>{" "}
-              not for profit, but as a small dedication.
-            </p>
             
-            <p className="text-purple-100 text-lg">
-              It's completely free for everyone{" "}
-              <span className="inline-block animate-bounce">🎶</span>
-              <span className="inline-block animate-bounce delay-100">💫</span>
-            </p>
+            {/* Animated underline */}
+            <div className="w-32 h-1 bg-gradient-to-r from-transparent via-pink-400 to-transparent mx-auto rounded-full animate-pulse"></div>
+          </div>
 
-            <div className="bg-gradient-to-r from-purple-600/30 to-pink-600/30 rounded-2xl p-4 mt-6 mb-6 border border-purple-400/20">
-              <p className="text-purple-100 text-base leading-relaxed">
-                But remember — if you're enjoying Rhythm, don't forget to send a silent prayer{" "}
-                <span className="inline-block animate-pulse">🤲</span>{" "}
-                for that "someone special".
+          {/* Enhanced message content */}
+          <div className="space-y-6 text-center leading-relaxed">
+            <div className="relative p-6 rounded-2xl bg-gradient-to-r from-violet-800/40 via-purple-800/40 to-fuchsia-800/40 
+                            backdrop-blur-sm border border-white/10 shadow-lg">
+              <p className="text-white text-lg font-medium">
+                This app is built with{" "}
+                <span className="text-2xl text-red-400 heart-beat-animation inline-block transform hover:scale-125 transition-transform">❤️</span>{" "}
+                not for profit, but as a small dedication.
               </p>
-              <p className="text-purple-100 text-base mt-2">
-                Wish them happiness{" "}
-                <span className="inline-block animate-bounce delay-200">🌸</span>, 
-                and may all their dreams come true{" "}
-                <span className="inline-block animate-pulse delay-300">🌟</span>.
+              
+              <p className="text-white/90 text-lg mt-3">
+                It's completely free for everyone{" "}
+                <span className="inline-block animate-bounce text-xl">🎶</span>
+                <span className="inline-block animate-bounce delay-100 text-xl">💫</span>
               </p>
+            </div>
+
+            {/* Special dedication message */}
+            <div className="relative p-6 rounded-2xl bg-gradient-to-br from-pink-600/30 via-purple-600/30 to-cyan-600/30 
+                            backdrop-blur-sm border-2 border-pink-400/30 shadow-xl">
+              <div className="absolute inset-0 bg-gradient-to-r from-pink-500/10 to-purple-500/10 rounded-2xl animate-pulse"></div>
+              
+              <div className="relative space-y-3">
+                <p className="text-white/95 text-base leading-relaxed font-medium">
+                  But remember — if you're enjoying Rhythm, don't forget to send a silent prayer{" "}
+                  <span className="inline-block animate-pulse text-xl">🤲</span>{" "}
+                  for that "someone special".
+                </p>
+                <p className="text-pink-200 text-base leading-relaxed">
+                  Wish them happiness{" "}
+                  <span className="inline-block animate-bounce delay-200 text-lg">🌸</span>, 
+                  and may all their dreams come true{" "}
+                  <span className="inline-block animate-pulse delay-300 text-lg">🌟</span>.
+                </p>
+              </div>
+              
+              {/* Heart beating animation */}
+              <div className="absolute -top-2 -right-2 text-red-400 heart-beat-animation">💖</div>
             </div>
           </div>
 
-          {/* Action button */}
-          <div className="flex justify-center mt-8">
+          {/* Enhanced action button */}
+          <div className="flex justify-center mt-10">
             <Button
               onClick={handleClose}
-              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 
-                         hover:to-pink-700 text-white font-semibold px-8 py-3 rounded-full 
-                         shadow-lg hover:shadow-xl transition-all duration-300 transform 
-                         hover:scale-105 border border-purple-400/30"
+              className="relative overflow-hidden bg-gradient-to-r from-violet-600 via-purple-600 to-fuchsia-600 
+                         hover:from-violet-500 hover:via-purple-500 hover:to-fuchsia-500
+                         text-white font-bold px-10 py-4 rounded-full text-lg
+                         shadow-2xl hover:shadow-purple-500/25 transition-all duration-500 
+                         transform hover:scale-110 hover:-translate-y-1 border-2 border-white/20 
+                         hover:border-white/40 group"
               data-testid="button-got-it"
             >
-              Got it 💜
+              <span className="relative z-10 flex items-center gap-2">
+                Got it 
+                <span className="text-xl animate-pulse">💜</span>
+              </span>
+              
+              {/* Button shine effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent 
+                              -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
             </Button>
           </div>
         </div>
 
-        {/* Decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500"></div>
-        <div className="absolute -top-20 -left-20 w-40 h-40 bg-purple-500/20 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-pink-500/20 rounded-full blur-xl animate-pulse delay-1000"></div>
+        {/* Enhanced decorative elements */}
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-violet-500 via-fuchsia-500 via-pink-500 to-cyan-500 animate-pulse"></div>
+        <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 via-pink-500 via-fuchsia-500 to-violet-500 animate-pulse"></div>
+        
+        {/* Glowing orbs */}
+        <div className="absolute -top-32 -left-32 w-64 h-64 bg-violet-500/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-32 -right-32 w-64 h-64 bg-fuchsia-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-ping"></div>
       </DialogContent>
     </Dialog>
   );
