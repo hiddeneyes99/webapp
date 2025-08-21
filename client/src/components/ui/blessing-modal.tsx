@@ -38,7 +38,7 @@ export default function BlessingModal({ isOpen, onClose }: BlessingModalProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogContent className="max-w-md mx-auto bg-gradient-to-br from-purple-900/10 via-gray-900/20 to-cyan-900/10 border border-purple-500/30 backdrop-blur-xl shadow-2xl relative overflow-hidden">
+      <DialogContent className="max-w-md mx-auto bg-gradient-to-br from-purple-900/90 via-gray-900/95 to-cyan-900/90 border border-purple-500/50 backdrop-blur-xl shadow-2xl relative overflow-hidden">
         <DialogHeader>
           <DialogTitle className="sr-only">About Rhythm</DialogTitle>
           <Button
@@ -52,9 +52,9 @@ export default function BlessingModal({ isOpen, onClose }: BlessingModalProps) {
         </DialogHeader>
         
         {/* Background gradient effect */}
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-cyan-500/5"></div>
-        <div className="absolute top-0 left-1/4 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-32 h-32 bg-cyan-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-transparent to-cyan-500/20"></div>
+        <div className="absolute top-0 left-1/4 w-32 h-32 bg-purple-500/30 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-32 h-32 bg-cyan-500/30 rounded-full blur-3xl"></div>
         
         <div className="relative p-6 text-center">
           {/* Floating Music Notes */}
