@@ -67,7 +67,6 @@ export default function SocialLinks({
       <div className={cn(
         "fixed right-6 top-1/2 -translate-y-1/2 z-50 space-y-3",
         "bg-gradient-to-br from-gray-900/95 to-black/95 backdrop-blur-xl border border-purple-500/30 rounded-2xl p-3 shadow-2xl",
-        "floating-social",
         className
       )}>
         {socialLinks.map((social, index) => (
