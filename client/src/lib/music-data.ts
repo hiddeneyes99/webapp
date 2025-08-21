@@ -6,6 +6,7 @@ export interface MusicTrack {
   duration: number;
   audioUrl: string;
   thumbnailUrl?: string;
+  customThumbnailUrl?: string;
   isLiked?: boolean;
 }
 
