@@ -7,6 +7,8 @@ import Waveform from "./waveform";
 import { formatDuration, musicTracks } from "@/lib/music-data";
 import { useAudioPlayer } from "@/hooks/use-audio-player";
 
+import technical_white_hat_2_0_1752333903253 from "@assets/technical white hat 2.0_1752333903253.jpg";
+
 interface PlayerProps {
   className?: string;
   forceMinimized?: boolean;
@@ -128,7 +130,7 @@ export default function MusicPlayer({ className, forceMinimized }: PlayerProps) 
           {/* Album Art & Info */}
           <div className="text-center lg:text-left">
             <img 
-              src={displayTrack.thumbnailUrl || "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop"}
+              src={technical_white_hat_2_0_1752333903253}
               alt="Album cover" 
               className="w-64 h-64 mx-auto lg:mx-0 rounded-2xl shadow-2xl mb-6" 
             />
