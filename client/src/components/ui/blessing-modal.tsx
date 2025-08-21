@@ -36,30 +36,30 @@ export default function BlessingModal({ isOpen, onClose }: BlessingModalProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogContent className="max-w-md mx-auto bg-gradient-to-br from-purple-900/95 to-pink-900/95 border-pink-500/30 backdrop-blur-xl">
+      <DialogContent className="max-w-lg mx-auto bg-gradient-to-br from-gray-900/98 to-black/98 border border-purple-500/40 backdrop-blur-2xl shadow-2xl">
         <DialogHeader>
           <DialogTitle className="sr-only">Special Message</DialogTitle>
           <Button
             variant="ghost"
             size="icon"
             onClick={handleClose}
-            className="absolute right-4 top-4 text-white hover:bg-white/10"
+            className="absolute right-4 top-4 text-gray-400 hover:text-white hover:bg-purple-500/20 rounded-full transition-all duration-300"
           >
             <X size={18} />
           </Button>
         </DialogHeader>
         
-        <div className="relative overflow-hidden p-6 text-center">
+        <div className="relative overflow-hidden p-8 text-center">
           {/* Floating Hearts Animation */}
           {hearts.map((heart) => (
             <Heart
               key={heart.id}
-              className="absolute text-pink-400 animate-ping opacity-70"
-              size={16}
+              className="absolute text-purple-400 animate-ping opacity-60"
+              size={14}
               style={{
                 left: `${heart.x}%`,
                 top: `${heart.y}%`,
-                animationDuration: '2s',
+                animationDuration: '3s',
                 animationDelay: `${Math.random() * 2}s`
               }}
             />
@@ -68,66 +68,74 @@ export default function BlessingModal({ isOpen, onClose }: BlessingModalProps) {
           {/* Main Content */}
           <div className="relative z-10 space-y-6">
             {/* Header */}
-            <div className="flex justify-center space-x-2 mb-4">
-              <Sparkles className="text-yellow-400 animate-pulse" size={24} />
-              <Heart className="text-red-500 animate-bounce" size={28} />
-              <Sparkles className="text-yellow-400 animate-pulse" size={24} />
+            <div className="flex justify-center items-center space-x-3 mb-6">
+              <Sparkles className="text-cyan-400 animate-pulse" size={24} />
+              <div className="p-3 rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 animate-pulse">
+                <Heart className="text-white" size={24} />
+              </div>
+              <Sparkles className="text-cyan-400 animate-pulse" size={24} />
             </div>
             
-            <h2 className="text-2xl font-bold text-white mb-4 gradient-text">
-              💝 खुशखबरी! 💝
+            <h2 className="text-3xl font-bold gradient-text mb-6">
+              A Special Message
             </h2>
             
             {/* Message */}
-            <div className="space-y-4 text-gray-200">
-              <p className="text-lg font-semibold text-pink-200">
-                🎉 यह ऐप बिल्कुल फ्री है! 🎉
-              </p>
-              
-              <div className="bg-white/10 rounded-lg p-4 border border-pink-400/30">
-                <p className="text-sm leading-relaxed">
-                  लेकिन एक खास बात है... जिस इंसान की वजह से यह सब कुछ possible हुआ है, 
-                  उसके लिए दुआ करना मत भूलना। 🤲
+            <div className="space-y-6 text-gray-200">
+              <div className="bg-gradient-to-r from-purple-500/20 to-cyan-500/20 rounded-xl p-6 border border-purple-400/30 backdrop-blur-sm">
+                <p className="text-xl font-bold text-white mb-4">
+                  This App is Completely FREE! 🎉
+                </p>
+                <p className="text-gray-300 leading-relaxed">
+                  But there's something special... This beautiful app exists because of someone very dear to our hearts. 
                 </p>
               </div>
               
-              <div className="space-y-2">
-                <p className="font-medium text-pink-200">
-                  🌟 दुआ करें कि वह हमेशा खुश रहे
+              <div className="bg-black/40 rounded-xl p-6 border border-gray-700/50">
+                <p className="text-lg font-semibold text-cyan-400 mb-4">
+                  Please keep that special person in your prayers:
                 </p>
-                <p className="font-medium text-pink-200">
-                  🌟 उसकी सारी दुआएं पूरी हो जाएं
-                </p>
-                <p className="font-medium text-pink-200">
-                  🌟 उसके जीवन में खुशियां ही खुशियां हों
-                </p>
+                <div className="space-y-3 text-left">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
+                    <p className="text-gray-300">May they always be blessed with happiness</p>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-2 h-2 bg-cyan-500 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+                    <p className="text-gray-300">May all their dreams come true</p>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
+                    <p className="text-gray-300">May their life be filled with endless joy</p>
+                  </div>
+                </div>
               </div>
               
-              <div className="flex justify-center space-x-2 py-2">
-                <Heart className="text-red-500 animate-pulse" size={20} />
-                <Heart className="text-pink-500 animate-pulse" size={20} style={{ animationDelay: '0.2s' }} />
-                <Heart className="text-red-500 animate-pulse" size={20} style={{ animationDelay: '0.4s' }} />
+              <div className="flex justify-center space-x-3 py-2">
+                <Heart className="text-red-500 animate-bounce" size={20} />
+                <Heart className="text-purple-500 animate-bounce" size={20} style={{ animationDelay: '0.3s' }} />
+                <Heart className="text-cyan-500 animate-bounce" size={20} style={{ animationDelay: '0.6s' }} />
               </div>
               
-              <p className="text-xs text-gray-300 italic">
+              <p className="text-sm text-gray-400 italic font-medium">
                 "Music connects hearts, love makes everything possible" ❤️
               </p>
             </div>
             
             {/* Buttons */}
-            <div className="flex flex-col space-y-3 pt-4">
+            <div className="flex flex-col space-y-4 pt-6">
               <Button
                 onClick={handleClose}
-                className="bg-gradient-to-r from-pink-500 to-red-500 hover:from-pink-600 hover:to-red-600 text-white font-semibold py-3"
+                className="bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600 text-white font-bold py-4 px-8 text-lg rounded-xl shadow-lg hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105"
               >
-                🤲 दुआ के साथ आगे बढ़ें
+                Continue with Blessings 🙏
               </Button>
               
               <button
                 onClick={handleClose}
-                className="text-xs text-gray-400 hover:text-white transition-colors"
+                className="text-sm text-gray-500 hover:text-gray-300 transition-colors py-2"
               >
-                बाद में दिखाएं
+                Maybe later
               </button>
             </div>
           </div>
