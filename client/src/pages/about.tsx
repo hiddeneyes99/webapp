@@ -92,11 +92,14 @@ export default function About() {
             <Card className="bg-gradient-to-br from-gray-900/80 to-black/80 border-gray-700/50 backdrop-blur-lg">
               <CardContent className="p-6 sm:p-8">
                 <div className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
-                  <img 
-                    src={techWhiteHatLogo}
-                    alt="Technical White Hat - Software Developer" 
-                    className="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover shadow-lg flex-shrink-0" 
-                  />
+                  <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full shadow-lg flex-shrink-0 overflow-hidden">
+                    <img 
+                      src={techWhiteHatLogo}
+                      alt="Technical White Hat - Software Developer" 
+                      loading="lazy"
+                      className="w-full h-full object-cover transition-opacity duration-300" 
+                    />
+                  </div>
                   <div className="flex-1 text-center md:text-left">
                     <h3 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-3 gradient-text">
                       Technical White Hat

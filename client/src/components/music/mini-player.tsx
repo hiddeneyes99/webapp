@@ -43,6 +43,7 @@ export default function MiniPlayer({ className, onExpand }: MiniPlayerProps) {
         <img 
           src={technical_white_hat_2_0_1752333903253}
           alt="Currently playing album cover" 
+          loading="lazy"
           className="w-12 h-12 rounded-lg object-cover" 
         />
         <div className="flex-1 min-w-0">

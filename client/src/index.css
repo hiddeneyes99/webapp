@@ -173,6 +173,47 @@
   animation: gradientText 4s ease-in-out infinite;
 }
 
+/* Performance optimizations for smoother animations */
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    will-change: auto;
+  }
+  
+  .waveform-bar,
+  .gradient-text,
+  .animated-bg {
+    will-change: transform, background-position;
+  }
+  
+  img {
+    content-visibility: auto;
+  }
+}
+
+/* Lazy loading transition effects */
+.lazy-load-enter {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.lazy-load-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Image blur-up effect for better perceived performance */
+.image-placeholder {
+  background: linear-gradient(90deg, #1f2937, #374151, #1f2937);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
 @keyframes gradientText {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
