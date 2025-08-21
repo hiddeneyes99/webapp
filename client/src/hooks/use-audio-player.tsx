@@ -39,6 +39,7 @@ export const AudioPlayerProvider = ({ children }: { children: ReactNode }) => {
   const [volume, setVolumeState] = useState(75);
   const [playlist] = useState<MusicTrack[]>(musicTracks);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [hasAutoStarted, setHasAutoStarted] = useState(false);
   
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const progressInterval = useRef<NodeJS.Timeout | null>(null);
@@ -62,6 +63,11 @@ export const AudioPlayerProvider = ({ children }: { children: ReactNode }) => {
 
     audio.addEventListener('ended', () => {
       nextTrack();
+    });
+
+    audio.addEventListener('loadedmetadata', () => {
+      setDuration(audio.duration || 0);
+      setIsLoading(false);
     });
 
     audio.addEventListener('error', (e) => {
@@ -177,6 +183,17 @@ export const AudioPlayerProvider = ({ children }: { children: ReactNode }) => {
     // Implementation for liking tracks
     console.log('Toggle like for track:', trackId);
   };
+
+  // Auto-start first song on app load
+  useEffect(() => {
+    if (!hasAutoStarted && musicTracks.length > 0) {
+      setHasAutoStarted(true);
+      // Auto-play first song after a short delay
+      setTimeout(() => {
+        playTrack(musicTracks[0]);
+      }, 1000);
+    }
+  }, [hasAutoStarted]);
 
   // Cleanup on unmount
   useEffect(() => {

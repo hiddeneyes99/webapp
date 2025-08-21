@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import AppIcon from "@/components/ui/app-icon";
 import DownloadModal from "@/components/ui/download-modal";
 import AnimatedVisualizer from "@/components/ui/animated-visualizer";
+import MiniPlayer from "@/components/music/mini-player";
 
 export default function Home() {
   const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
@@ -85,6 +86,11 @@ export default function Home() {
                   View Source Code
                 </Button>
               </a>
+            </div>
+
+            {/* Mini Music Player */}
+            <div className="mb-8">
+              <MiniPlayer className="max-w-md mx-auto" />
             </div>
 
             {/* Platform Support */}

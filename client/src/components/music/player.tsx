@@ -4,14 +4,15 @@ import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { cn } from "@/lib/utils";
 import Waveform from "./waveform";
-import { formatDuration } from "@/lib/music-data";
+import { formatDuration, musicTracks } from "@/lib/music-data";
 import { useAudioPlayer } from "@/hooks/use-audio-player";
 
 interface PlayerProps {
   className?: string;
+  forceMinimized?: boolean;
 }
 
-export default function MusicPlayer({ className }: PlayerProps) {
+export default function MusicPlayer({ className, forceMinimized }: PlayerProps) {
   const { 
     currentTrack, 
     isPlaying, 
@@ -19,6 +20,7 @@ export default function MusicPlayer({ className }: PlayerProps) {
     currentTime, 
     duration, 
     volume, 
+    playTrack,
     playPause, 
     nextTrack, 
     previousTrack, 
@@ -27,43 +29,54 @@ export default function MusicPlayer({ className }: PlayerProps) {
     toggleLike
   } = useAudioPlayer();
   
-  const [isMinimized, setIsMinimized] = useState(true);
+  const [isMinimized, setIsMinimized] = useState(forceMinimized ?? true);
 
-  // Don't render if no track is loaded
-  if (!currentTrack) {
+  // Always show if there are tracks available, even if none is currently playing
+  const displayTrack = currentTrack || musicTracks[0];
+  
+  if (!displayTrack) {
     return null;
   }
 
   const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
 
-  if (isMinimized) {
+  if (isMinimized || forceMinimized) {
     return (
-      <div className={cn(
-        "fixed bottom-0 left-0 right-0 z-40 bg-gradient-to-r from-gray-900/95 to-black/95 backdrop-blur-lg border-t border-gray-700",
-        className
-      )}>
+      <div 
+        className={cn(
+          "fixed bottom-0 left-0 right-0 z-40 bg-gradient-to-r from-gray-900/95 to-black/95 backdrop-blur-lg border-t border-gray-700 cursor-pointer",
+          className
+        )}
+        onClick={() => !forceMinimized && setIsMinimized(false)}
+      >
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3 flex-1 min-w-0">
               <img 
-                src={currentTrack.thumbnailUrl || "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop"}
+                src={displayTrack.thumbnailUrl || "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop"}
                 alt="Currently playing album cover" 
                 className="w-12 h-12 rounded-lg object-cover" 
               />
               <div className="flex-1 min-w-0">
-                <h4 className="font-semibold text-sm truncate">{currentTrack.title}</h4>
-                <p className="text-xs text-gray-400 truncate">{currentTrack.artist}</p>
+                <h4 className="font-semibold text-sm truncate">{displayTrack.title}</h4>
+                <p className="text-xs text-gray-400 truncate">{displayTrack.artist}</p>
               </div>
             </div>
             
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4" onClick={(e) => e.stopPropagation()}>
               <Button variant="ghost" size="icon" className="hover:bg-gray-700" onClick={previousTrack}>
                 <SkipBack size={16} />
               </Button>
               <Button 
                 size="icon" 
                 className="bg-gradient-to-r from-purple-500 to-cyan-500 hover:shadow-lg"
-                onClick={playPause}
+                onClick={() => {
+                  if (!currentTrack && displayTrack) {
+                    playTrack(displayTrack);
+                  } else {
+                    playPause();
+                  }
+                }}
                 disabled={isLoading}
               >
                 {isLoading ? <Loader2 size={16} className="animate-spin" /> : isPlaying ? <Pause size={16} /> : <Play size={16} />}
@@ -73,26 +86,31 @@ export default function MusicPlayer({ className }: PlayerProps) {
               </Button>
             </div>
             
-            <div className="hidden md:flex items-center space-x-3">
+            <div className="hidden md:flex items-center space-x-3" onClick={(e) => e.stopPropagation()}>
               <Button 
                 variant="ghost" 
                 size="icon" 
                 className="hover:bg-gray-700"
-                onClick={() => toggleLike(currentTrack.id)}
+                onClick={() => toggleLike(displayTrack.id)}
               >
-                <Heart size={16} className={currentTrack.isLiked ? "text-red-500 fill-current" : "text-gray-300"} />
+                <Heart size={16} className={displayTrack.isLiked ? "text-red-500 fill-current" : "text-gray-300"} />
               </Button>
               <Button variant="ghost" size="icon" className="hover:bg-gray-700">
                 <Volume2 size={16} />
               </Button>
-              <Button 
-                variant="ghost" 
-                size="sm" 
-                onClick={() => setIsMinimized(false)}
-                className="text-xs hover:bg-gray-700"
-              >
-                Expand
-              </Button>
+              {!forceMinimized && (
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsMinimized(false);
+                  }}
+                  className="text-xs hover:bg-gray-700"
+                >
+                  Expand
+                </Button>
+              )}
             </div>
           </div>
         </div>
@@ -110,13 +128,13 @@ export default function MusicPlayer({ className }: PlayerProps) {
           {/* Album Art & Info */}
           <div className="text-center lg:text-left">
             <img 
-              src={currentTrack.thumbnailUrl || "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop"}
+              src={displayTrack.thumbnailUrl || "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=300&fit=crop"}
               alt="Album cover" 
               className="w-64 h-64 mx-auto lg:mx-0 rounded-2xl shadow-2xl mb-6" 
             />
-            <h4 className="text-2xl font-bold mb-2">{currentTrack.title}</h4>
-            <p className="text-gray-400 mb-1">{currentTrack.artist}</p>
-            <p className="text-sm text-gray-500">{currentTrack.album}</p>
+            <h4 className="text-2xl font-bold mb-2">{displayTrack.title}</h4>
+            <p className="text-gray-400 mb-1">{displayTrack.artist}</p>
+            <p className="text-sm text-gray-500">{displayTrack.album}</p>
           </div>
 
           {/* Player Controls */}
@@ -155,7 +173,13 @@ export default function MusicPlayer({ className }: PlayerProps) {
               <Button 
                 size="lg" 
                 className="bg-gradient-to-r from-purple-500 to-cyan-500 hover:shadow-xl w-16 h-16 rounded-full"
-                onClick={playPause}
+                onClick={() => {
+                  if (!currentTrack && displayTrack) {
+                    playTrack(displayTrack);
+                  } else {
+                    playPause();
+                  }
+                }}
                 disabled={isLoading}
               >
                 {isLoading ? <Loader2 size={24} className="animate-spin" /> : isPlaying ? <Pause size={24} /> : <Play size={24} />}
@@ -175,9 +199,9 @@ export default function MusicPlayer({ className }: PlayerProps) {
                   variant="ghost" 
                   size="icon" 
                   className="hover:bg-gray-700"
-                  onClick={() => toggleLike(currentTrack.id)}
+                  onClick={() => toggleLike(displayTrack.id)}
                 >
-                  <Heart size={18} className={currentTrack.isLiked ? "text-red-500 fill-current" : "text-gray-300"} />
+                  <Heart size={18} className={displayTrack.isLiked ? "text-red-500 fill-current" : "text-gray-300"} />
                 </Button>
                 <Button variant="ghost" size="icon" className="hover:bg-gray-700">
                   <Plus size={18} />
