@@ -33,20 +33,16 @@ function Router() {
   const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
   const [isBlessingModalOpen, setIsBlessingModalOpen] = useState(false);
 
-  // Show blessing modal after 3 seconds on first visit
+  // Show blessing modal after 10 seconds
   useEffect(() => {
-    const hasSeenBlessing = localStorage.getItem('hasSeenBlessing');
-    if (!hasSeenBlessing) {
-      const timer = setTimeout(() => {
-        setIsBlessingModalOpen(true);
-      }, 3000);
-      return () => clearTimeout(timer);
-    }
+    const timer = setTimeout(() => {
+      setIsBlessingModalOpen(true);
+    }, 10000);
+    return () => clearTimeout(timer);
   }, []);
 
   const handleBlessingClose = () => {
     setIsBlessingModalOpen(false);
-    localStorage.setItem('hasSeenBlessing', 'true');
   };
 
   return (
