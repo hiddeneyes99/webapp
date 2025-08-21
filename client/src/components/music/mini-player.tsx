@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { musicTracks } from "@/lib/music-data";
 import { useAudioPlayer } from "@/hooks/use-audio-player";
 
+import technical_white_hat_2_0_1752333903253 from "@assets/technical white hat 2.0_1752333903253.jpg";
 
 interface MiniPlayerProps {
   className?: string;
@@ -40,7 +41,7 @@ export default function MiniPlayer({ className, onExpand }: MiniPlayerProps) {
     >
       <div className="flex items-center space-x-3">
         <img 
-          src={displayTrack.customThumbnailUrl || displayTrack.thumbnailUrl || "/assets/logo.png"}
+          src={technical_white_hat_2_0_1752333903253}
           alt="Currently playing album cover" 
           className="w-12 h-12 rounded-lg object-cover" 
         />

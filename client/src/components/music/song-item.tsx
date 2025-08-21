@@ -77,13 +77,13 @@ export default function SongItem({
       </div>
 
       {/* Thumbnail */}
-      <div className="w-12 h-12">
+      {track.thumbnailUrl && (
         <img 
-          src={track.customThumbnailUrl || track.thumbnailUrl || "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&w=300&h=300&fit=crop&auto=format"}
+          src={track.thumbnailUrl}
           alt={`${track.title} thumbnail`}
           className="w-12 h-12 rounded-lg object-cover" 
         />
-      </div>
+      )}
 
       {/* Song Info */}
       <div className="flex-1 min-w-0">

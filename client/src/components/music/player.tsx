@@ -7,6 +7,7 @@ import Waveform from "./waveform";
 import { formatDuration, musicTracks } from "@/lib/music-data";
 import { useAudioPlayer } from "@/hooks/use-audio-player";
 
+import technical_white_hat_2_0_1752333903253 from "@assets/technical white hat 2.0_1752333903253.jpg";
 
 interface PlayerProps {
   className?: string;
@@ -54,7 +55,7 @@ export default function MusicPlayer({ className, forceMinimized }: PlayerProps) 
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3 flex-1 min-w-0">
               <img 
-                src={displayTrack.customThumbnailUrl || displayTrack.thumbnailUrl || "/assets/logo.png"}
+                src={technical_white_hat_2_0_1752333903253}
                 alt="Currently playing album cover" 
                 className="w-12 h-12 rounded-lg object-cover" 
               />
