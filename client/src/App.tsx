@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import DownloadModal from "@/components/ui/download-modal";
+import BlessingModal from "@/components/ui/blessing-modal";
 import MusicPlayer from "@/components/music/player";
 import SocialLinks from "@/components/ui/social-links";
 import { AudioPlayerProvider } from "@/hooks/use-audio-player";
@@ -52,6 +53,9 @@ function Router() {
         isOpen={isDownloadModalOpen} 
         onClose={() => setIsDownloadModalOpen(false)} 
       />
+      
+      {/* Blessing Modal - Auto-shows on page load */}
+      <BlessingModal />
       
       {/* Floating Social Media Links */}
       <SocialLinks variant="floating" showLabels={false} size="sm" />
