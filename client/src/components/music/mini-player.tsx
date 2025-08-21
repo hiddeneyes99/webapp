@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Play, Pause, SkipBack, SkipForward, Heart, Loader2, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { musicTracks } from "@/lib/music-data";
+import { musicTracks, getEffectiveThumbnailUrl } from "@/lib/music-data";
 import { useAudioPlayer } from "@/hooks/use-audio-player";
 
 import technical_white_hat_2_0_1752333903253 from "@assets/technical white hat 2.0_1752333903253.jpg";
