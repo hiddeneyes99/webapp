@@ -52,7 +52,7 @@ export const musicTracks: MusicTrack[] = [
     album: "Hum Dono • 1961",
     duration: 248, // approximate
     audioUrl: "/music/Abhi Na Jaao Chhod Kar _ Dev Anand _ Sadhana _ Mohd Rafi _ Asha Bhosle _ Hum Dono (1961)(MP3_128K)_1755781957779.mp3",
-    thumbnailUrl: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&w=300&h=300&fit=crop&auto=format",
+    thumbnailUrl: "/assets/rhythm-logo.png",
     isLiked: false
   },
   {
@@ -62,7 +62,7 @@ export const musicTracks: MusicTrack[] = [
     album: "Himalay Ki God Mein • 1965",
     duration: 267, // approximate
     audioUrl: "/music/Chand Si Mehbooba Ho Meri - Mukesh - Himalay Ki God Mein [1965](MP3_128K)_1755781957779.mp3",
-    thumbnailUrl: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&w=300&h=300&fit=crop&auto=format",
+    thumbnailUrl: "/assets/rhythm-logo.png",
     isLiked: false
   },
   {
@@ -72,7 +72,7 @@ export const musicTracks: MusicTrack[] = [
     album: "Glitch Hop • NCS",
     duration: 274, // approximate
     audioUrl: "/music/DEAF KEV - Invincible _ Glitch Hop _ NCS - Copyright Free Music(MP3_320K)_1755781957780.mp3",
-    thumbnailUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&w=300&h=300&fit=crop&auto=format",
+    thumbnailUrl: "/assets/rhythm-logo.png",
     isLiked: false
   },
   {
@@ -82,7 +82,7 @@ export const musicTracks: MusicTrack[] = [
     album: "Progressive House • NCS",
     duration: 208, // approximate
     audioUrl: "/music/Janji - Heroes Tonight (feat. Johnning) _ Progressive House _ NCS - Copyright Free Music(MP3_320K)_1755781957780.mp3",
-    thumbnailUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&w=300&h=300&fit=crop&auto=format",
+    thumbnailUrl: "/assets/rhythm-logo.png",
     isLiked: false
   },
   {
@@ -92,7 +92,7 @@ export const musicTracks: MusicTrack[] = [
     album: "Trap • NCS",
     duration: 201, // approximate
     audioUrl: "/music/Julius Dreisig _ Zeus X Crona - Invisible _ Trap _ NCS - Copyright Free Music(MP3_320K)_1755781957783.mp3",
-    thumbnailUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&w=300&h=300&fit=crop&auto=format",
+    thumbnailUrl: "/assets/rhythm-logo.png",
     isLiked: false
   },
   {
@@ -102,7 +102,7 @@ export const musicTracks: MusicTrack[] = [
     album: "Single",
     duration: 194, // approximate
     audioUrl: "/music/Ooyy - Faded(MP3_320K)_1755781957785.mp3",
-    thumbnailUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&w=300&h=300&fit=crop&auto=format",
+    thumbnailUrl: "/assets/rhythm-logo.png",
     isLiked: false
   },
   {
@@ -112,7 +112,7 @@ export const musicTracks: MusicTrack[] = [
     album: "NCS Release",
     duration: 190, // approximate
     audioUrl: "/music/T-Mass - Ignoring My Heart [NCS Release](MP3_320K)_1755781957786.mp3",
-    thumbnailUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&w=300&h=300&fit=crop&auto=format",
+    thumbnailUrl: "/assets/rhythm-logo.png",
     isLiked: false
   }
 ];
