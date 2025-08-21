@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { Github, Heart, Download, ExternalLink } from "lucide-react";
 import AppIcon from "@/components/ui/app-icon";
+import SocialLinks from "@/components/ui/social-links";
 
 export default function Footer() {
   return (
@@ -99,6 +100,17 @@ export default function Footer() {
                   Privacy Policy
                 </a>
               </div>
+            </div>
+          </div>
+
+          {/* Social Media Section */}
+          <div className="border-t border-gray-800 pt-8 pb-6">
+            <div className="text-center">
+              <h5 className="font-semibold text-white mb-4 text-lg">Follow Technical White Hat</h5>
+              <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
+                Stay updated with the latest releases, tutorials, and tech content. Follow on your favorite platform!
+              </p>
+              <SocialLinks variant="footer" showLabels={true} size="md" />
             </div>
           </div>
 

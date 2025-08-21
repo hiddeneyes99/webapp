@@ -7,6 +7,7 @@ import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import DownloadModal from "@/components/ui/download-modal";
 import MusicPlayer from "@/components/music/player";
+import SocialLinks from "@/components/ui/social-links";
 import { AudioPlayerProvider } from "@/hooks/use-audio-player";
 import { useState, lazy, Suspense } from "react";
 
@@ -51,6 +52,9 @@ function Router() {
         isOpen={isDownloadModalOpen} 
         onClose={() => setIsDownloadModalOpen(false)} 
       />
+      
+      {/* Floating Social Media Links */}
+      <SocialLinks variant="floating" showLabels={false} size="sm" />
     </div>
   );
 }

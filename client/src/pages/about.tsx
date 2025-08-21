@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import AppIcon from "@/components/ui/app-icon";
 import DownloadModal from "@/components/ui/download-modal";
+import SocialLinks from "@/components/ui/social-links";
 import { useState, useEffect } from "react";
 import techWhiteHatLogo from "@assets/technical white hat 2.0_1752333903253.jpg";
 
@@ -110,18 +111,11 @@ export default function About() {
                       This project represents my commitment to providing free, open-source software that respects 
                       user privacy and delivers an exceptional music listening experience.
                     </p>
-                    <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start space-y-3 sm:space-y-0 sm:space-x-4">
-                      <a 
-                        href="https://github.com/technicalwhitehat-yt" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="w-full sm:w-auto"
-                      >
-                        <Button variant="outline" className="border-gray-600 w-full sm:w-auto">
-                          <Github className="mr-2" size={16} />
-                          Follow on GitHub
-                        </Button>
-                      </a>
+                    <div className="space-y-4">
+                      <div className="text-center md:text-left">
+                        <h4 className="text-sm font-semibold text-gray-300 mb-3">Follow for Updates & More Projects:</h4>
+                        <SocialLinks variant="compact" size="sm" showLabels={false} />
+                      </div>
                       <a 
                         href="https://github.com/technicalwhitehat-yt/RhyThm-Music" 
                         target="_blank" 

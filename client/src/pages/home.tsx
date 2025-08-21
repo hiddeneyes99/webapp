@@ -6,6 +6,7 @@ import AppIcon from "@/components/ui/app-icon";
 import DownloadModal from "@/components/ui/download-modal";
 import AnimatedVisualizer from "@/components/ui/animated-visualizer";
 import MiniPlayer from "@/components/music/mini-player";
+import SocialLinks from "@/components/ui/social-links";
 
 export default function Home() {
   const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
@@ -91,6 +92,14 @@ export default function Home() {
             {/* Mini Music Player */}
             <div className="mb-8">
               <MiniPlayer className="max-w-md mx-auto" />
+            </div>
+
+            {/* Social Media Follow Section */}
+            <div className="mb-8">
+              <h4 className="text-lg sm:text-xl font-semibold mb-4 text-gray-300">
+                🚀 Follow Technical White Hat for Updates
+              </h4>
+              <SocialLinks variant="inline" size="md" className="justify-center" />
             </div>
 
             {/* Platform Support */}
