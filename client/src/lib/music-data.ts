@@ -6,22 +6,8 @@ export interface MusicTrack {
   duration: number;
   audioUrl: string;
   thumbnailUrl?: string;
-  customThumbnailUrl?: string;
   isLiked?: boolean;
 }
-
-// Function to update track thumbnail
-export const updateTrackThumbnail = (trackId: number, newThumbnailUrl: string) => {
-  const trackIndex = musicTracks.findIndex(track => track.id === trackId);
-  if (trackIndex !== -1) {
-    musicTracks[trackIndex].customThumbnailUrl = newThumbnailUrl;
-  }
-};
-
-// Function to get effective thumbnail URL (custom first, then default)
-export const getEffectiveThumbnailUrl = (track: MusicTrack): string => {
-  return track.customThumbnailUrl || track.thumbnailUrl || "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&w=300&h=300&fit=crop&auto=format";
-};
 
 export interface MusicPlaylist {
   id: number;
@@ -56,7 +42,7 @@ export const musicTracks: MusicTrack[] = [
     album: "A Unspoken Feeling",
     duration: 244, // approximate
     audioUrl: "/music/One-sided love_ A Unspoken Feeling (LYRICS) _ Twh(MP3_128K)_1755781957784.mp3",
-    thumbnailUrl: "/assets/technical white hat 2.0_1755783359786.jpg",
+    thumbnailUrl: "/assets/technical white hat 2.0_1752333903253.jpg",
     isLiked: true
   },
   {

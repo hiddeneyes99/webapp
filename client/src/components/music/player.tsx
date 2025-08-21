@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { cn } from "@/lib/utils";
 import Waveform from "./waveform";
-import { formatDuration, musicTracks, getEffectiveThumbnailUrl } from "@/lib/music-data";
+import { formatDuration, musicTracks } from "@/lib/music-data";
 import { useAudioPlayer } from "@/hooks/use-audio-player";
 
 import technical_white_hat_2_0_1752333903253 from "@assets/technical white hat 2.0_1752333903253.jpg";
