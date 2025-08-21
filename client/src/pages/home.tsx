@@ -92,12 +92,6 @@ export default function Home() {
             {/* Mini Music Player */}
             <div className="mb-8">
               <MiniPlayer className="max-w-md mx-auto" />
-              {/* Mobile Audio Permission Notice */}
-              <div className="mt-4 text-center">
-                <p className="text-xs text-gray-500 max-w-xs mx-auto">
-                  📱 On mobile? Tap the play button to start listening to music!
-                </p>
-              </div>
             </div>
 
             {/* Social Media Follow Section */}
