@@ -80,7 +80,10 @@ export default function MiniPlayer({ className, onExpand }: MiniPlayerProps) {
         </div>
         
         {onExpand && (
-          <ChevronUp size={16} className="text-gray-400" />
+          <div className="flex items-center space-x-1">
+            <ChevronUp size={16} className="text-purple-400 animate-bounce" />
+            <span className="text-xs text-purple-300 font-semibold animate-pulse">Click to Expand</span>
+          </div>
         )}
       </div>
     </div>

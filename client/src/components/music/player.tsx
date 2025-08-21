@@ -106,9 +106,9 @@ export default function MusicPlayer({ className, forceMinimized }: PlayerProps) 
                     e.stopPropagation();
                     setIsMinimized(false);
                   }}
-                  className="text-xs hover:bg-gray-700"
+                  className="text-xs hover:bg-gradient-to-r hover:from-purple-500/20 hover:to-cyan-500/20 border border-purple-500/30 text-purple-300 animate-pulse"
                 >
-                  Expand
+                  🔺 Expand
                 </Button>
               )}
             </div>
@@ -223,9 +223,9 @@ export default function MusicPlayer({ className, forceMinimized }: PlayerProps) 
                 variant="ghost" 
                 size="sm" 
                 onClick={() => setIsMinimized(true)}
-                className="text-xs hover:bg-gray-700"
+                className="text-xs hover:bg-gradient-to-r hover:from-purple-500/20 hover:to-cyan-500/20 border border-purple-500/40 text-purple-300 animate-pulse"
               >
-                Minimize
+                🔻 Minimize
               </Button>
             </div>
           </div>
