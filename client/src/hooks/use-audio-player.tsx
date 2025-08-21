@@ -40,6 +40,7 @@ export const AudioPlayerProvider = ({ children }: { children: ReactNode }) => {
   const [playlist] = useState<MusicTrack[]>(musicTracks);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [hasAutoStarted, setHasAutoStarted] = useState(false);
+  const [userInteracted, setUserInteracted] = useState(false);
   
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const progressInterval = useRef<NodeJS.Timeout | null>(null);
@@ -75,9 +76,16 @@ export const AudioPlayerProvider = ({ children }: { children: ReactNode }) => {
       setIsLoading(false);
     });
 
+    // Mobile-friendly audio setup
+    audio.addEventListener('canplaythrough', () => {
+      setDuration(audio.duration || 0);
+      setIsLoading(false);
+    });
+
     // Set volume and load
     audio.volume = volume / 100;
     audio.preload = 'metadata';
+    audio.crossOrigin = 'anonymous'; // Help with CORS issues
     audio.src = track.audioUrl;
     
     return audio;
@@ -85,6 +93,8 @@ export const AudioPlayerProvider = ({ children }: { children: ReactNode }) => {
 
   const playTrack = async (track: MusicTrack) => {
     try {
+      setUserInteracted(true); // Mark that user has interacted
+      
       const trackIndex = playlist.findIndex(t => t.id === track.id);
       setCurrentIndex(trackIndex);
       setCurrentTrack(track);
@@ -115,6 +125,8 @@ export const AudioPlayerProvider = ({ children }: { children: ReactNode }) => {
     if (!audioRef.current || !currentTrack) return;
     
     try {
+      setUserInteracted(true); // Mark that user has interacted
+      
       if (isPlaying) {
         audioRef.current.pause();
         setIsPlaying(false);
@@ -184,14 +196,43 @@ export const AudioPlayerProvider = ({ children }: { children: ReactNode }) => {
     console.log('Toggle like for track:', trackId);
   };
 
-  // Auto-start first song on app load
+  // Auto-start first song on app load (only on desktop or after user interaction)
   useEffect(() => {
     if (!hasAutoStarted && musicTracks.length > 0) {
       setHasAutoStarted(true);
-      // Auto-play first song after a short delay
-      setTimeout(() => {
-        playTrack(musicTracks[0]);
-      }, 1000);
+      
+      // Check if device supports autoplay (usually desktop)
+      const checkAutoplaySupport = async () => {
+        try {
+          const audio = new Audio();
+          audio.volume = 0; // Muted test
+          audio.muted = true;
+          await audio.play();
+          audio.pause();
+          
+          // If we reach here, autoplay is supported
+          // Only auto-start on desktop (non-touch devices)
+          const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+                           ('ontouchstart' in window) || 
+                           (navigator.maxTouchPoints > 0);
+          
+          if (!isMobile) {
+            setTimeout(() => {
+              playTrack(musicTracks[0]);
+            }, 1000);
+          } else {
+            // On mobile, just set the first track without playing
+            setCurrentTrack(musicTracks[0]);
+            setCurrentIndex(0);
+          }
+        } catch (error) {
+          // Autoplay not supported, just set the first track
+          setCurrentTrack(musicTracks[0]);
+          setCurrentIndex(0);
+        }
+      };
+      
+      checkAutoplaySupport();
     }
   }, [hasAutoStarted]);
 
