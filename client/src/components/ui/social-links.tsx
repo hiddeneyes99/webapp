@@ -97,10 +97,6 @@ export default function SocialLinks({
             />
           </a>
         ))}
-        <div className="text-center pt-2">
-          <div className="text-xs text-gray-400 font-medium">Follow</div>
-          <div className="text-xs text-purple-400 font-semibold">Technical White Hat</div>
-        </div>
       </div>
     );
   }
