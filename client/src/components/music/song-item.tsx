@@ -1,53 +1,65 @@
-import { Play, Heart, MoreHorizontal } from "lucide-react";
+import { Play, Heart, MoreHorizontal, Pause, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { formatDuration } from "@/lib/music-data";
+import { formatDuration, MusicTrack } from "@/lib/music-data";
 import { cn } from "@/lib/utils";
+import { useAudioPlayer } from "@/hooks/use-audio-player";
 
 interface SongItemProps {
-  id: number;
-  title: string;
-  artist: string;
-  album?: string;
-  duration: number;
-  thumbnailUrl?: string;
-  isLiked?: boolean;
+  track: MusicTrack;
   position?: number;
   className?: string;
-  onPlay?: () => void;
-  onLike?: () => void;
 }
 
 export default function SongItem({
-  title,
-  artist,
-  album,
-  duration,
-  thumbnailUrl,
-  isLiked = false,
+  track,
   position,
-  className,
-  onPlay,
-  onLike
+  className
 }: SongItemProps) {
+  const { currentTrack, isPlaying, isLoading, playTrack, playPause, toggleLike } = useAudioPlayer();
+  
+  const isCurrentTrack = currentTrack?.id === track.id;
+  const isThisTrackPlaying = isCurrentTrack && isPlaying;
+  const isThisTrackLoading = isCurrentTrack && isLoading;
+  
+  const handlePlay = () => {
+    if (isCurrentTrack) {
+      playPause();
+    } else {
+      playTrack(track);
+    }
+  };
+  
+  const handleLike = () => {
+    toggleLike(track.id);
+  };
   return (
     <div className={cn(
       "flex items-center space-x-4 p-4 rounded-xl hover:bg-gray-800/50 transition-colors cursor-pointer group",
+      isCurrentTrack && "bg-gray-800/50 border border-purple-500/30",
       className
     )}>
       {/* Position/Play Button */}
       <div className="w-12 h-12 relative flex items-center justify-center">
         {position ? (
           <>
-            <div className="w-full h-full bg-gradient-to-br from-purple-500 to-cyan-500 rounded-lg flex items-center justify-center text-white font-semibold group-hover:opacity-0 transition-opacity">
+            <div className={cn(
+              "w-full h-full bg-gradient-to-br from-purple-500 to-cyan-500 rounded-lg flex items-center justify-center text-white font-semibold transition-opacity",
+              (isThisTrackPlaying || isThisTrackLoading) ? "opacity-0" : "group-hover:opacity-0"
+            )}>
               {position}
             </div>
             <Button
               size="icon"
               variant="ghost"
-              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity bg-gray-700 hover:bg-gray-600"
-              onClick={onPlay}
+              className={cn(
+                "absolute inset-0 transition-opacity bg-gray-700 hover:bg-gray-600",
+                (isThisTrackPlaying || isThisTrackLoading) ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+              )}
+              onClick={handlePlay}
+              disabled={isThisTrackLoading}
             >
-              <Play size={16} />
+              {isThisTrackLoading ? <Loader2 size={16} className="animate-spin" /> : 
+               isThisTrackPlaying ? <Pause size={16} /> : <Play size={16} />}
             </Button>
           </>
         ) : (
@@ -55,36 +67,41 @@ export default function SongItem({
             size="icon"
             variant="ghost"
             className="bg-gray-700 hover:bg-gray-600"
-            onClick={onPlay}
+            onClick={handlePlay}
+            disabled={isThisTrackLoading}
           >
-            <Play size={16} />
+            {isThisTrackLoading ? <Loader2 size={16} className="animate-spin" /> : 
+             isThisTrackPlaying ? <Pause size={16} /> : <Play size={16} />}
           </Button>
         )}
       </div>
 
       {/* Thumbnail */}
-      {thumbnailUrl && (
+      {track.thumbnailUrl && (
         <img 
-          src={thumbnailUrl}
-          alt={`${title} thumbnail`}
+          src={track.thumbnailUrl}
+          alt={`${track.title} thumbnail`}
           className="w-12 h-12 rounded-lg object-cover" 
         />
       )}
 
       {/* Song Info */}
       <div className="flex-1 min-w-0">
-        <h4 className="font-semibold group-hover:text-cyan-400 transition-colors truncate">
-          {title}
+        <h4 className={cn(
+          "font-semibold transition-colors truncate",
+          isCurrentTrack ? "text-purple-400" : "group-hover:text-cyan-400"
+        )}>
+          {track.title}
         </h4>
         <p className="text-sm text-gray-400 truncate">
-          {artist}
-          {album && ` • ${album}`}
+          {track.artist}
+          {track.album && ` • ${track.album}`}
         </p>
       </div>
 
       {/* Duration */}
       <div className="hidden md:block text-sm text-gray-400">
-        {formatDuration(duration)}
+        {formatDuration(track.duration)}
       </div>
 
       {/* Actions */}
@@ -93,11 +110,11 @@ export default function SongItem({
           size="icon"
           variant="ghost"
           className="hover:bg-gray-700"
-          onClick={onLike}
+          onClick={handleLike}
         >
           <Heart 
             size={16} 
-            className={isLiked ? "text-red-500 fill-current" : "text-gray-400"} 
+            className={track.isLiked ? "text-red-500 fill-current" : "text-gray-400"} 
           />
         </Button>
         <Button

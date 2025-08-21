@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Download, Menu, Home, Info, Github, Monitor } from "lucide-react";
+import { Download, Menu, Home, Info, Github, Monitor, Music } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import AppIcon from "@/components/ui/app-icon";
@@ -15,6 +15,7 @@ export default function Header({ onDownloadClick }: HeaderProps) {
 
   const navigation = [
     { href: "/", label: "Home", icon: Home },
+    { href: "/library", label: "Library", icon: Music },
     { href: "/features", label: "Features", icon: Monitor },
     { href: "/about", label: "About", icon: Info },
   ];

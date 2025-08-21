@@ -7,9 +7,12 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 import Features from "@/pages/discover";
 import About from "@/pages/about";
+import Library from "@/pages/library";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import DownloadModal from "@/components/ui/download-modal";
+import MusicPlayer from "@/components/music/player";
+import { AudioPlayerProvider } from "@/hooks/use-audio-player";
 import { useState } from "react";
 
 function Router() {
@@ -21,6 +24,7 @@ function Router() {
       <main className="flex-1">
         <Switch>
           <Route path="/" component={Home} />
+          <Route path="/library" component={Library} />
           <Route path="/features" component={Features} />
           <Route path="/about" component={About} />
           <Route component={NotFound} />
@@ -41,8 +45,11 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <Toaster />
-        <Router />
+        <AudioPlayerProvider>
+          <Toaster />
+          <Router />
+          <MusicPlayer />
+        </AudioPlayerProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );
