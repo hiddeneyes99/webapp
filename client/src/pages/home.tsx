@@ -6,7 +6,6 @@ import AppIcon from "@/components/ui/app-icon";
 import DownloadModal from "@/components/ui/download-modal";
 import AnimatedVisualizer from "@/components/ui/animated-visualizer";
 import MiniPlayer from "@/components/music/mini-player";
-import PhoneMockup from "@/components/ui/phone-mockup";
 
 export default function Home() {
   const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
@@ -43,83 +42,70 @@ export default function Home() {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="min-h-screen bg-gradient-to-br from-black via-purple-900/20 to-cyan-900/20 flex items-center relative overflow-hidden">
-        {/* Background Decorative Elements */}
-        <div className="absolute top-20 left-10 w-32 h-32 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl animate-bounce-slow"></div>
-        <div className="absolute top-1/2 left-1/4 w-20 h-20 bg-cyan-400/5 rounded-full blur-2xl"></div>
-        
-        <div className="container mx-auto px-4 py-20 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
-            
-            {/* Left Content */}
-            <div className="text-center lg:text-left order-2 lg:order-1">
-              <div className="mb-6">
-                <div className="flex justify-center lg:justify-start items-center mb-4">
-                  <AppIcon size="xl" className="mr-4" useCustomIcon />
-                  <AnimatedVisualizer className="" bars={4} size="md" />
-                </div>
-                
-                <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-4">
-                  <span className="gradient-text">RHYTHM</span><br />
-                  <span className="text-white">MUSIC</span>
+      <section className="min-h-screen bg-gradient-to-br from-black via-purple-900/20 to-cyan-900/20 flex items-center">
+        <div className="container mx-auto px-4 py-20">
+          <div className="max-w-5xl mx-auto text-center">
+            <div className="mb-6 sm:mb-8">
+              <AppIcon size="xl" className="mx-auto mb-6 sm:mb-8" useCustomIcon />
+              <div className="flex flex-col items-center mb-4 sm:mb-6">
+                <AnimatedVisualizer className="mb-3 sm:mb-4" bars={5} size="lg" />
+                <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold gradient-text">
+                  Rhythm Music
                 </h1>
-                
-                <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-4 text-gray-300">
-                  Ultimate Music Experience
-                </h2>
-                
-                <p className="text-gray-400 mb-2 text-sm sm:text-base">
-                  Music streaming app ka sabse advanced version
-                </p>
-                
-                <h3 className="text-lg sm:text-xl font-medium mb-6 text-white flex items-center justify-center lg:justify-start">
-                  Made with <Heart className="inline text-red-500 heart-pulse mx-2" size={20} /> for someone special
-                </h3>
-                
-                <p className="text-base text-gray-300 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-                  YouTube & YouTube Music se unlimited songs suniye bina kisi ad ke. 
-                  Cross-platform support ke saath complete offline experience.
-                </p>
               </div>
-
-              {/* Download Buttons */}
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-6 mb-8">
-                <Button 
-                  size="lg" 
-                  className="bg-gradient-to-r from-purple-500 to-cyan-500 hover:shadow-2xl text-lg px-8 py-4 download-btn w-full sm:w-auto font-semibold"
-                  onClick={() => setIsDownloadModalOpen(true)}
-                >
-                  <Download className="mr-2" size={20} />
-                  Download Now
-                </Button>
-                <a 
-                  href="https://github.com/technicalwhitehat-yt/RhyThm-Music" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto"
-                >
-                  <Button variant="outline" size="lg" className="border-gray-600 hover:bg-gray-800 text-lg px-8 py-4 w-full font-semibold">
-                    <Github className="mr-2" size={20} />
-                    View Source
-                  </Button>
-                </a>
-              </div>
-
-              {/* Platform Support */}
-              <div className="grid grid-cols-3 sm:grid-cols-5 gap-4 max-w-md mx-auto lg:mx-0">
-                {platforms.slice(0, 3).map((platform, index) => (
-                  <div key={platform.name} className={`text-center ${platform.available ? '' : 'opacity-50'}`}>
-                    <platform.icon className={`mx-auto mb-2 ${platform.color}`} size={24} />
-                    <p className="text-xs font-medium">{platform.name}</p>
-                  </div>
-                ))}
-              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 sm:mb-6 text-white">
+                Ad-Free Music Experience
+              </h2>
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 sm:mb-8 text-white">
+                Made with <Heart className="inline text-red-500 heart-pulse mx-1 sm:mx-2" size={24} /> for someone special
+              </h3>
+              <p className="text-base sm:text-xl text-gray-300 mb-6 sm:mb-8 max-w-3xl mx-auto px-4">
+                A cross-platform music streaming app that lets you enjoy unlimited music from YouTube & YouTube Music 
+                without advertisements. Built with passion by Technical White Hat.
+              </p>
             </div>
 
-            {/* Right Phone Mockup */}
-            <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
-              <PhoneMockup size="lg" className="lg:mr-8" />
+            {/* Download Buttons */}
+            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12">
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-purple-500 to-cyan-500 hover:shadow-xl text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 download-btn w-full sm:w-auto"
+                onClick={() => setIsDownloadModalOpen(true)}
+              >
+                <Download className="mr-2" size={18} />
+                Download Now
+              </Button>
+              <a 
+                href="https://github.com/technicalwhitehat-yt/RhyThm-Music" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto"
+              >
+                <Button variant="outline" size="lg" className="border-gray-600 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 w-full">
+                  <Github className="mr-2" size={18} />
+                  View Source Code
+                </Button>
+              </a>
+            </div>
+
+            {/* Mini Music Player */}
+            <div className="mb-8">
+              <MiniPlayer className="max-w-md mx-auto" />
+            </div>
+
+            {/* Platform Support */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4">
+              {platforms.map((platform, index) => (
+                <Card key={platform.name} className={`bg-gray-900/50 border-gray-700 platform-card ${platform.available ? 'hover:bg-gray-800/50' : 'opacity-60'}`}>
+                  <CardContent className="p-3 sm:p-4 text-center">
+                    <platform.icon className={`mx-auto mb-1 sm:mb-2 ${platform.color}`} size={28} />
+                    <h4 className="font-semibold text-xs sm:text-sm">{platform.name}</h4>
+                    <p className="text-xs text-gray-400 mt-1">
+                      {platform.available ? 'Available' : 'Coming Soon'}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         </div>

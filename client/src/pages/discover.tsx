@@ -36,9 +36,9 @@ export default function Features() {
   ];
 
   const screenshots = [
-    { title: "Main Interface", url: "https://raw.githubusercontent.com/hiddeneyes99/talkwink/refs/heads/main/RHYTHM.png" },
-    { title: "Music Player", url: "https://raw.githubusercontent.com/hiddeneyes99/talkwink/refs/heads/main/player.png" },
-    { title: "Playlist View", url: "https://raw.githubusercontent.com/hiddeneyes99/talkwink/refs/heads/main/playlist.png" }
+    { title: "Main Interface", url: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=400&h=600&fit=crop" },
+    { title: "Music Player", url: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=600&fit=crop" },
+    { title: "Playlist View", url: "https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=400&h=600&fit=crop" }
   ];
 
   const platforms = [
