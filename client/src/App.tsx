@@ -33,19 +33,13 @@ function Router() {
   const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
   const [isBlessingModalOpen, setIsBlessingModalOpen] = useState(false);
 
-  // Show blessing modal after 2 seconds for testing
+  // Show blessing modal after 7 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
-      console.log('Setting blessing modal to open');
       setIsBlessingModalOpen(true);
-    }, 2000);
+    }, 7000);
     return () => clearTimeout(timer);
   }, []);
-
-  // Debug log
-  useEffect(() => {
-    console.log('Blessing modal state:', isBlessingModalOpen);
-  }, [isBlessingModalOpen]);
 
   const handleBlessingClose = () => {
     setIsBlessingModalOpen(false);
