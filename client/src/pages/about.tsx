@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import AppIcon from "@/components/ui/app-icon";
 import DownloadModal from "@/components/ui/download-modal";
 import { useState, useEffect } from "react";
-import techWhiteHatLogo from "@assets/technical white hat 2.0_1752333903253.jpg";
 
 interface GitHubStats {
   stars: number;
@@ -93,7 +92,7 @@ export default function About() {
               <CardContent className="p-6 sm:p-8">
                 <div className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
                   <img 
-                    src={techWhiteHatLogo}
+                    src="/assets/twh.jpg"
                     alt="Technical White Hat - Software Developer" 
                     className="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover shadow-lg flex-shrink-0" 
                   />

@@ -40,7 +40,7 @@ export default function MiniPlayer({ className, onExpand }: MiniPlayerProps) {
     >
       <div className="flex items-center space-x-3">
         <img 
-          src={displayTrack.customThumbnailUrl || displayTrack.thumbnailUrl || "/assets/rhythm-logo.png"}
+          src={displayTrack.customThumbnailUrl || displayTrack.thumbnailUrl || "/assets/logo.png"}
           alt="Currently playing album cover" 
           className="w-12 h-12 rounded-lg object-cover" 
         />
