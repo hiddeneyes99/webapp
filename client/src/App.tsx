@@ -6,10 +6,11 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import DownloadModal from "@/components/ui/download-modal";
+import BlessingModal from "@/components/ui/blessing-modal";
 import MusicPlayer from "@/components/music/player";
 import SocialLinks from "@/components/ui/social-links";
 import { AudioPlayerProvider } from "@/hooks/use-audio-player";
-import { useState, lazy, Suspense } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 
 // Lazy load pages for faster initial load
 const Home = lazy(() => import("@/pages/home"));
@@ -30,6 +31,23 @@ const PageLoading = () => (
 
 function Router() {
   const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
+  const [isBlessingModalOpen, setIsBlessingModalOpen] = useState(false);
+
+  // Show blessing modal after 3 seconds on first visit
+  useEffect(() => {
+    const hasSeenBlessing = localStorage.getItem('hasSeenBlessing');
+    if (!hasSeenBlessing) {
+      const timer = setTimeout(() => {
+        setIsBlessingModalOpen(true);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  const handleBlessingClose = () => {
+    setIsBlessingModalOpen(false);
+    localStorage.setItem('hasSeenBlessing', 'true');
+  };
 
   return (
     <div className="min-h-screen bg-black text-white flex flex-col">
@@ -51,6 +69,12 @@ function Router() {
       <DownloadModal 
         isOpen={isDownloadModalOpen} 
         onClose={() => setIsDownloadModalOpen(false)} 
+      />
+      
+      {/* Blessing Modal */}
+      <BlessingModal 
+        isOpen={isBlessingModalOpen} 
+        onClose={handleBlessingClose} 
       />
       
       {/* Floating Social Media Links */}
