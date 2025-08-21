@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Music, X, Sparkles, Music2, Radio } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 
 interface BlessingModalProps {
@@ -41,6 +41,7 @@ export default function BlessingModal({ isOpen, onClose }: BlessingModalProps) {
       <DialogContent className="max-w-md mx-auto bg-gradient-to-br from-purple-900/90 via-gray-900/95 to-cyan-900/90 border border-purple-500/50 backdrop-blur-xl shadow-2xl relative overflow-hidden">
         <DialogHeader>
           <DialogTitle className="sr-only">About Rhythm</DialogTitle>
+          <DialogDescription className="sr-only">A special message about the Rhythm Music app</DialogDescription>
           <Button
             variant="ghost"
             size="icon"
