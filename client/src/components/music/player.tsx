@@ -72,13 +72,7 @@ export default function MusicPlayer({ className, forceMinimized }: PlayerProps) 
               <Button 
                 size="icon" 
                 className="bg-gradient-to-r from-purple-500 to-cyan-500 hover:shadow-lg"
-                onClick={() => {
-                  if (!currentTrack && displayTrack) {
-                    playTrack(displayTrack);
-                  } else {
-                    playPause();
-                  }
-                }}
+                onClick={playPause}
                 disabled={isLoading}
               >
                 {isLoading ? <Loader2 size={16} className="animate-spin" /> : isPlaying ? <Pause size={16} /> : <Play size={16} />}
@@ -175,13 +169,7 @@ export default function MusicPlayer({ className, forceMinimized }: PlayerProps) 
               <Button 
                 size="lg" 
                 className="bg-gradient-to-r from-purple-500 to-cyan-500 hover:shadow-xl w-16 h-16 rounded-full"
-                onClick={() => {
-                  if (!currentTrack && displayTrack) {
-                    playTrack(displayTrack);
-                  } else {
-                    playPause();
-                  }
-                }}
+                onClick={playPause}
                 disabled={isLoading}
               >
                 {isLoading ? <Loader2 size={24} className="animate-spin" /> : isPlaying ? <Pause size={24} /> : <Play size={24} />}

@@ -122,7 +122,19 @@ export const AudioPlayerProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const playPause = async () => {
-    if (!audioRef.current || !currentTrack) return;
+    // If no track is selected, try to play the first track
+    if (!currentTrack) {
+      if (playlist.length > 0) {
+        await playTrack(playlist[0]);
+      }
+      return;
+    }
+
+    // If track is selected but audio not initialized, initialize and play
+    if (!audioRef.current) {
+      await playTrack(currentTrack);
+      return;
+    }
     
     try {
       setUserInteracted(true); // Mark that user has interacted

@@ -58,13 +58,7 @@ export default function MiniPlayer({ className, onExpand }: MiniPlayerProps) {
           <Button 
             size="icon" 
             className="bg-gradient-to-r from-purple-500 to-cyan-500 hover:shadow-lg h-8 w-8"
-            onClick={() => {
-              if (!currentTrack && displayTrack) {
-                playTrack(displayTrack);
-              } else {
-                playPause();
-              }
-            }}
+            onClick={playPause}
             disabled={isLoading}
           >
             {isLoading ? <Loader2 size={14} className="animate-spin" /> : isPlaying ? <Pause size={14} /> : <Play size={14} />}
