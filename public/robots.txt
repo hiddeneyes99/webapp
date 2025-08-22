@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://rhythm-music.replit.app/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1
+
+# Disallow common bot traps
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /*?*
+
+# Allow important pages
+Allow: /
+Allow: /discover
+Allow: /library
+Allow: /about
