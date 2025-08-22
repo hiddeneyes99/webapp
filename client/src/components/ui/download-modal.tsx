@@ -82,7 +82,7 @@ export default function DownloadModal({ isOpen, onClose }: DownloadModalProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="w-[95vw] max-w-6xl max-h-[90vh] overflow-y-auto bg-black/90 backdrop-blur-lg border-gray-800 modal-fade-in">
+      <DialogContent className="w-[95vw] max-w-6xl max-h-[85vh] overflow-y-auto bg-black/90 backdrop-blur-lg border-gray-800 modal-fade-in m-2 sm:m-6">
         <DialogHeader>
           <DialogTitle className="text-xl md:text-2xl font-bold gradient-text flex items-center flex-wrap">
             <Download className="mr-2 md:mr-3" size={24} />

@@ -34,10 +34,10 @@ export default function BlessingModal({ isOpen: externalIsOpen, onClose: externa
   return (
     <Dialog open={modalIsOpen} onOpenChange={handleClose}>
       <DialogContent 
-        className="max-w-md mx-auto bg-gradient-to-br from-purple-900/95 via-purple-800/95 to-indigo-900/95 
+        className="w-[90vw] max-w-md mx-auto max-h-[80vh] overflow-y-auto bg-gradient-to-br from-purple-900/95 via-purple-800/95 to-indigo-900/95 
                    backdrop-blur-xl border-2 border-purple-500/30 rounded-3xl shadow-2xl 
-                   shadow-purple-500/20 text-white p-0 overflow-hidden animate-in fade-in-0 
-                   zoom-in-95 duration-500"
+                   shadow-purple-500/20 text-white p-0 animate-in fade-in-0 
+                   zoom-in-95 duration-500 m-4"
         data-testid="blessing-modal"
       >
         {/* Hidden title and description for accessibility */}
@@ -49,16 +49,16 @@ export default function BlessingModal({ isOpen: externalIsOpen, onClose: externa
         {/* Close button */}
         <button
           onClick={handleClose}
-          className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/20 hover:bg-black/40 
-                     transition-colors duration-200 group"
+          className="absolute top-2 right-2 z-20 p-3 rounded-full bg-black/40 hover:bg-black/60 
+                     transition-colors duration-200 group shadow-lg border border-white/20"
           data-testid="button-close-modal"
           aria-label="Close modal"
         >
-          <X className="w-5 h-5 text-white/70 group-hover:text-white transition-colors" />
+          <X className="w-6 h-6 text-white group-hover:text-white transition-colors" />
         </button>
 
         {/* Content */}
-        <div className="p-8 pt-12">
+        <div className="p-4 sm:p-8 pt-12 sm:pt-12">
           {/* Header with sparkle animation */}
           <div className="text-center mb-6">
             <div className="relative">
@@ -73,29 +73,29 @@ export default function BlessingModal({ isOpen: externalIsOpen, onClose: externa
 
           {/* Main message */}
           <div className="space-y-4 text-center leading-relaxed">
-            <p className="text-purple-100 text-lg">
+            <p className="text-purple-100 text-sm sm:text-lg">
               This app was not built for money, nor for fame — it was created with pure{" "}
               <span className="text-red-300 animate-pulse inline-block">💖.</span>{" "}
               
             </p>
             
-            <p className="text-purple-100 text-lg">
+            <p className="text-purple-100 text-sm sm:text-lg">
               Rhythm is completely free for everyone 🌍💫. You don’t need to pay anything, just enjoy the music and let it make your heart lighter.{" "}
               <span className="inline-block animate-bounce">🎶</span>
               <span className="inline-block animate-bounce delay-100">💫</span>
             </p>
 
             <div className="bg-gradient-to-r from-purple-600/30 to-pink-600/30 rounded-2xl p-4 mt-6 mb-6 border border-purple-400/20">
-              <p className="text-purple-100 text-base leading-relaxed">
+              <p className="text-purple-100 text-xs sm:text-base leading-relaxed">
                 But there’s one thing you can do 🙏 — if you’re smiling, if you’re finding peace through this app, please take a moment and send a silent prayer 🤲 for that special soul who unknowingly made this possible.{" "}
               </p>
-              <p className="text-purple-100 text-base mt-2">
+              <p className="text-purple-100 text-xs sm:text-base mt-2">
                 Wish them happiness{" "}
                 <span className="inline-block animate-bounce delay-200">🌸</span>, 
                 strength 💪, and may all their dreams shine as bright as the stars{" "}
                 <span className="inline-block animate-pulse delay-300">🌟</span>.
               </p> <br></br>
-              <p className="text-purple-100 text-base leading"> Because if they hadn’t inspired it, you wouldn’t be using Rhythm today 💜.
+              <p className="text-purple-100 text-xs sm:text-base leading"> Because if they hadn’t inspired it, you wouldn’t be using Rhythm today 💜.
                 {" "} </p>
             </div>
           </div>
