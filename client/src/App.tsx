@@ -42,7 +42,7 @@ function Router() {
             <Route path="/library" component={Library} />
             <Route path="/features" component={Features} />
             <Route path="/about" component={About} />
-            <Route component={NotFound} />
+            <Route path="/:rest*" component={NotFound} />
           </Switch>
         </Suspense>
       </main>

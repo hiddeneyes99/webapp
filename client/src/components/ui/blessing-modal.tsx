@@ -16,7 +16,7 @@ export default function BlessingModal({ isOpen: externalIsOpen, onClose: externa
     if (externalIsOpen === undefined && externalOnClose === undefined) {
       const timer = setTimeout(() => {
         setIsOpen(true);
-      }, 1000); // Show after 1 second delay
+      }, 7000); // Show after 1 second delay
       return () => clearTimeout(timer);
     }
   }, [externalIsOpen, externalOnClose]);
@@ -74,29 +74,29 @@ export default function BlessingModal({ isOpen: externalIsOpen, onClose: externa
           {/* Main message */}
           <div className="space-y-4 text-center leading-relaxed">
             <p className="text-purple-100 text-lg">
-              This app is built with{" "}
-              <span className="text-red-300 animate-pulse inline-block">❤️</span>{" "}
-              not for profit, but as a small dedication.
+              This app was not built for money, nor for fame — it was created with pure{" "}
+              <span className="text-red-300 animate-pulse inline-block">💖.</span>{" "}
+              
             </p>
             
             <p className="text-purple-100 text-lg">
-              It's completely free for everyone{" "}
+              Rhythm is completely free for everyone 🌍💫. You don’t need to pay anything, just enjoy the music and let it make your heart lighter.{" "}
               <span className="inline-block animate-bounce">🎶</span>
               <span className="inline-block animate-bounce delay-100">💫</span>
             </p>
 
             <div className="bg-gradient-to-r from-purple-600/30 to-pink-600/30 rounded-2xl p-4 mt-6 mb-6 border border-purple-400/20">
               <p className="text-purple-100 text-base leading-relaxed">
-                But remember — if you're enjoying Rhythm, don't forget to send a silent prayer{" "}
-                <span className="inline-block animate-pulse">🤲</span>{" "}
-                for that "someone special".
+                But there’s one thing you can do 🙏 — if you’re smiling, if you’re finding peace through this app, please take a moment and send a silent prayer 🤲 for that special soul who unknowingly made this possible.{" "}
               </p>
               <p className="text-purple-100 text-base mt-2">
                 Wish them happiness{" "}
                 <span className="inline-block animate-bounce delay-200">🌸</span>, 
-                and may all their dreams come true{" "}
+                strength 💪, and may all their dreams shine as bright as the stars{" "}
                 <span className="inline-block animate-pulse delay-300">🌟</span>.
-              </p>
+              </p> <br></br>
+              <p className="text-purple-100 text-base leading"> Because if they hadn’t inspired it, you wouldn’t be using Rhythm today 💜.
+                {" "} </p>
             </div>
           </div>
 
