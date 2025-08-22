@@ -31,7 +31,7 @@ export default function DownloadModal({ isOpen, onClose }: DownloadModalProps) {
       size: "45 MB",
       requirements: "Windows 10/11",
       available: true,
-      downloadUrl: "https://github.com/technicalwhitehat-yt/RhyThm-Music/releases/latest",
+      downloadUrl: "https://github.com/technicalwhitehat-yt/RhyThm-Music/releases/download/latest/rhythm_music-1.12.0.exe",
       color: "text-blue-500",
       bgColor: "from-blue-500/20 to-blue-600/20",
       borderColor: "border-blue-500/30"
