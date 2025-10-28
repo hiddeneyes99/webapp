@@ -67,13 +67,22 @@ export default function About() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <AppIcon size="xl" className="mx-auto mb-6 sm:mb-8" useCustomIcon />
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 gradient-text">
-              About Rhythm Music
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-300 mb-6 sm:mb-8 max-w-3xl mx-auto">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold gradient-text">
+                About Rhythm Music
+              </h1>
+              <span className="text-base sm:text-lg px-3 py-1 bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 rounded-full font-semibold">
+                v1.1
+              </span>
+            </div>
+            <p className="text-lg sm:text-xl text-gray-300 mb-4 max-w-3xl mx-auto">
               An open-source, ad-free music streaming application built with passion and dedication. 
               Crafted by Technical White Hat for music lovers worldwide.
             </p>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-400/40 rounded-full backdrop-blur-sm mb-6">
+              <span className="text-green-400 text-lg">✅</span>
+              <span className="text-white text-sm sm:text-base font-semibold">Latest Update: Search Feature Fixed!</span>
+            </div>
           </div>
         </div>
       </section>

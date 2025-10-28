@@ -14,7 +14,12 @@ export default function Footer() {
               <div className="flex items-center space-x-3 mb-4">
                 <AppIcon size="md" useCustomIcon />
                 <div>
-                  <h4 className="text-xl font-bold gradient-text">Rhythm Music</h4>
+                  <div className="flex items-center gap-2">
+                    <h4 className="text-xl font-bold gradient-text">Rhythm Music</h4>
+                    <span className="text-xs px-2 py-0.5 bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 rounded-full">
+                      v1.1
+                    </span>
+                  </div>
                   <p className="text-sm text-gray-400">by Technical White Hat</p>
                 </div>
               </div>

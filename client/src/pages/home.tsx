@@ -53,6 +53,10 @@ export default function Home() {
                 <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold gradient-text">
                   Rhythm Music
                 </h1>
+                <div className="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-purple-400/40 rounded-full backdrop-blur-sm">
+                  <span className="text-yellow-400 text-lg sm:text-xl animate-pulse">⚡</span>
+                  <span className="text-white text-sm sm:text-base font-semibold">NEW v1.1 — Search Fixed!</span>
+                </div>
               </div>
               <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 sm:mb-6 text-white">
                 Ad-Free Music Experience

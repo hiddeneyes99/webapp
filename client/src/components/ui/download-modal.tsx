@@ -15,19 +15,20 @@ export default function DownloadModal({ isOpen, onClose }: DownloadModalProps) {
     {
       name: "Android",
       icon: Smartphone,
-      version: "Latest",
+      version: "v1.1 (Search Fix)",
       size: "30 MB",
       requirements: "Android 5.0+",
       available: true,
       downloadUrl: "https://github.com/technicalwhitehat-yt/RhyThm-Music/releases/download/latest/Rhythm-Music-V1.apk",
       color: "text-green-500",
       bgColor: "from-green-500/20 to-green-600/20",
-      borderColor: "border-green-500/30"
+      borderColor: "border-green-500/30",
+      isNew: true
     },
     {
       name: "Windows",
       icon: Monitor,
-      version: "Latest",
+      version: "v1.12.0",
       size: "17 MB",
       requirements: "Windows 10/11",
       available: true,
@@ -118,9 +119,15 @@ export default function DownloadModal({ isOpen, onClose }: DownloadModalProps) {
 
                 {platform.available ? (
                   <>
-                    <Badge variant="outline" className="mb-2 md:mb-4 text-xs text-green-400 border-green-400">
-                      ✓ Available Now
-                    </Badge>
+                    {platform.isNew ? (
+                      <Badge variant="outline" className="mb-2 md:mb-4 text-xs text-yellow-400 border-yellow-400 animate-pulse">
+                        ⚡ NEW v1.1 - Search Fixed!
+                      </Badge>
+                    ) : (
+                      <Badge variant="outline" className="mb-2 md:mb-4 text-xs text-green-400 border-green-400">
+                        ✓ Available Now
+                      </Badge>
+                    )}
                     <Button 
                       className={`w-full text-sm bg-gradient-to-r ${platform.bgColor} hover:opacity-80 download-btn`}
                       onClick={() => handleDownload(platform)}
