@@ -16,7 +16,7 @@ export default function BlessingModal({ isOpen: externalIsOpen, onClose: externa
     if (externalIsOpen === undefined && externalOnClose === undefined) {
       const timer = setTimeout(() => {
         setIsOpen(true);
-      }, 7000);
+      }, 2000);
       return () => clearTimeout(timer);
     }
   }, [externalIsOpen, externalOnClose]);
