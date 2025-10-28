@@ -16,7 +16,7 @@ export default function BlessingModal({ isOpen: externalIsOpen, onClose: externa
     if (externalIsOpen === undefined && externalOnClose === undefined) {
       const timer = setTimeout(() => {
         setIsOpen(true);
-      }, 7000); // Show after 1 second delay
+      }, 7000);
       return () => clearTimeout(timer);
     }
   }, [externalIsOpen, externalOnClose]);
@@ -34,9 +34,9 @@ export default function BlessingModal({ isOpen: externalIsOpen, onClose: externa
   return (
     <Dialog open={modalIsOpen} onOpenChange={handleClose}>
       <DialogContent 
-        className="w-[90vw] max-w-md mx-auto max-h-[80vh] overflow-y-auto bg-gradient-to-br from-purple-900/95 via-purple-800/95 to-indigo-900/95 
-                   backdrop-blur-xl border-2 border-purple-500/30 rounded-3xl shadow-2xl 
-                   shadow-purple-500/20 text-white p-0 animate-in fade-in-0 
+        className="w-[95vw] max-w-2xl mx-auto max-h-[90vh] overflow-y-auto bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 
+                   backdrop-blur-xl border-2 border-purple-400/40 rounded-2xl shadow-2xl 
+                   shadow-purple-600/30 text-white p-0 animate-in fade-in-0 
                    zoom-in-95 duration-500 m-4"
         data-testid="blessing-modal"
       >
@@ -49,116 +49,188 @@ export default function BlessingModal({ isOpen: externalIsOpen, onClose: externa
         {/* Close button */}
         <button
           onClick={handleClose}
-          className="absolute top-2 right-2 z-20 p-3 rounded-full bg-black/40 hover:bg-black/60 
-                     transition-colors duration-200 group shadow-lg border border-white/20"
+          className="absolute top-4 right-4 z-20 p-2 rounded-full bg-white/10 hover:bg-white/20 
+                     transition-all duration-200 group backdrop-blur-sm border border-white/10"
           data-testid="button-close-modal"
           aria-label="Close modal"
         >
-          <X className="w-6 h-6 text-white group-hover:text-white transition-colors" />
+          <X className="w-5 h-5 text-white" />
         </button>
 
+        {/* Animated gradient border */}
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-pulse"></div>
+
         {/* Content */}
-        <div className="p-4 sm:p-8 pt-12 sm:pt-12">
-          {/* Header with sparkle animation */}
-          <div className="text-center mb-6">
-            <div className="relative">
-              <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-purple-300 via-pink-300 to-purple-300 
-                             bg-clip-text text-transparent mb-2 animate-pulse">
-                🎵 Rhythm Music v1.1
-              </h2>
-              <p className="text-lg sm:text-xl font-semibold text-yellow-300 animate-bounce">
-                "The Search is Back!"
+        <div className="p-6 sm:p-8 pt-10 sm:pt-12">
+          {/* Header */}
+          <div className="text-center mb-8">
+            <div className="inline-block bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-[2px] rounded-2xl mb-4">
+              <div className="bg-slate-900 px-6 py-3 rounded-2xl">
+                <h2 className="text-3xl sm:text-4xl font-black bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 
+                               bg-clip-text text-transparent">
+                  Rhythm Music v1.1
+                </h2>
+              </div>
+            </div>
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <div className="h-px w-12 bg-gradient-to-r from-transparent via-purple-400 to-transparent"></div>
+              <p className="text-xl sm:text-2xl font-bold text-yellow-400 animate-pulse">
+                🔍 The Search is Back!
               </p>
+              <div className="h-px w-12 bg-gradient-to-r from-transparent via-purple-400 to-transparent"></div>
             </div>
           </div>
 
-          {/* Main message */}
-          <div className="space-y-4 leading-relaxed">
+          {/* Main content grid */}
+          <div className="space-y-5">
             {/* About this Update */}
-            <div>
-              <h3 className="text-lg sm:text-xl font-bold text-purple-200 mb-3">💬 About this Update</h3>
-              <p className="text-purple-100 text-xs sm:text-base">
-                In this new v1.1 release of Rhythm Music, we've fixed one of the biggest issues — the Search feature is now fully functional again! 🔍🎶
+            <div className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-400/30 rounded-xl p-5 backdrop-blur-sm">
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center">
+                  <span className="text-xl">💬</span>
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-blue-300">About this Update</h3>
+              </div>
+              <p className="text-gray-200 text-sm sm:text-base leading-relaxed">
+                In this new <strong className="text-blue-400">v1.1 release</strong> of Rhythm Music, we've fixed one of the biggest issues — the <strong className="text-purple-400">Search feature</strong> is now fully functional again! 🔍🎶
               </p>
-              <p className="text-purple-100 text-xs sm:text-base mt-2">
+              <p className="text-gray-200 text-sm sm:text-base leading-relaxed mt-2">
                 In the previous version, some users experienced problems with song searches not working. That's now fixed — you can instantly find your favorite tracks without any hassle ⚡
               </p>
             </div>
 
             {/* What's Fixed */}
-            <div className="bg-gradient-to-r from-green-600/30 to-emerald-600/30 rounded-2xl p-4 border border-green-400/20">
-              <h3 className="text-lg sm:text-xl font-bold text-green-200 mb-3">🚀 What's Fixed</h3>
-              <ul className="space-y-2 text-purple-100 text-xs sm:text-base">
-                <li>✅ Search Results Bug Fixed – Search now works smoothly and accurately.</li>
-                <li>⚡ Improved Speed & Stability – The app feels faster, smoother, and more responsive.</li>
-                <li>🧠 Minor Bug Fixes – Background performance and UI improvements for a cleaner experience.</li>
+            <div className="bg-gradient-to-br from-emerald-500/10 to-green-500/10 border border-emerald-400/30 rounded-xl p-5 backdrop-blur-sm">
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-8 h-8 rounded-lg bg-emerald-500/20 flex items-center justify-center">
+                  <span className="text-xl">🚀</span>
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-emerald-300">What's Fixed</h3>
+              </div>
+              <ul className="space-y-2.5">
+                <li className="flex items-start gap-3 text-gray-200 text-sm sm:text-base">
+                  <span className="text-emerald-400 mt-0.5">✅</span>
+                  <span><strong className="text-emerald-300">Search Results Bug Fixed</strong> – Search now works smoothly and accurately.</span>
+                </li>
+                <li className="flex items-start gap-3 text-gray-200 text-sm sm:text-base">
+                  <span className="text-emerald-400 mt-0.5">⚡</span>
+                  <span><strong className="text-emerald-300">Improved Speed & Stability</strong> – The app feels faster, smoother, and more responsive.</span>
+                </li>
+                <li className="flex items-start gap-3 text-gray-200 text-sm sm:text-base">
+                  <span className="text-emerald-400 mt-0.5">🧠</span>
+                  <span><strong className="text-emerald-300">Minor Bug Fixes</strong> – Background performance and UI improvements for a cleaner experience.</span>
+                </li>
               </ul>
             </div>
 
-            {/* Important Note */}
-            <div className="bg-gradient-to-r from-red-600/30 to-orange-600/30 rounded-2xl p-4 border border-red-400/20">
-              <h3 className="text-lg sm:text-xl font-bold text-red-200 mb-3">⚠️ Important Note</h3>
-              <p className="text-purple-100 text-xs sm:text-base font-semibold mb-2">
-                This update requires a fresh installation.
-              </p>
-              <p className="text-purple-100 text-xs sm:text-base">
-                If you already have an older version of Rhythm Music installed, please follow these steps:
-              </p>
-              <ol className="list-decimal list-inside space-y-1 mt-2 text-purple-100 text-xs sm:text-base ml-2">
-                <li>Uninstall the old app first.</li>
-                <li>Then install the new v1.1 APK.</li>
-              </ol>
-              <p className="text-purple-100 text-xs sm:text-base mt-3 italic">
-                ⚠️ Installing it directly over the old version will cause a package conflict error, and the update won't work properly.
-              </p>
-            </div>
+            {/* Important Note - Two Column Grid */}
+            <div className="grid sm:grid-cols-2 gap-5">
+              {/* Installation Note */}
+              <div className="bg-gradient-to-br from-red-500/10 to-orange-500/10 border border-red-400/30 rounded-xl p-5 backdrop-blur-sm">
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-8 h-8 rounded-lg bg-red-500/20 flex items-center justify-center">
+                    <span className="text-xl">⚠️</span>
+                  </div>
+                  <h3 className="text-base sm:text-lg font-bold text-red-300">Important Note</h3>
+                </div>
+                <p className="text-gray-200 text-xs sm:text-sm font-semibold mb-2">
+                  This update requires a fresh installation.
+                </p>
+                <p className="text-gray-200 text-xs sm:text-sm mb-2">
+                  If you have an older version installed:
+                </p>
+                <ol className="list-decimal list-inside space-y-1 text-gray-200 text-xs sm:text-sm ml-2">
+                  <li>Uninstall the old app first</li>
+                  <li>Install the new v1.1 APK</li>
+                </ol>
+                <div className="mt-3 p-2 bg-red-500/10 rounded-lg border border-red-400/20">
+                  <p className="text-red-300 text-xs sm:text-sm italic">
+                    Installing over the old version will cause a package conflict error!
+                  </p>
+                </div>
+              </div>
 
-            {/* Data Reset Information */}
-            <div className="bg-gradient-to-r from-yellow-600/30 to-amber-600/30 rounded-2xl p-4 border border-yellow-400/20">
-              <h3 className="text-lg sm:text-xl font-bold text-yellow-200 mb-3">📦 Data Reset Information</h3>
-              <p className="text-purple-100 text-xs sm:text-base mb-2">
-                Once you install this new version, all previously saved data will be reset — including:
-              </p>
-              <ul className="space-y-1 text-purple-100 text-xs sm:text-base ml-2">
-                <li>❤️ Liked Songs</li>
-                <li>🎵 Imported Playlists</li>
-                <li>📜 Song History</li>
-                <li>💡 Personalized Recommendations</li>
-                <li>🔍 Discover Section Preferences</li>
-                <li>💽 Albums</li>
-                <li>⬇️ Offline Songs</li>
-                <li>📁 Downloaded Songs</li>
-              </ul>
-              <p className="text-purple-100 text-xs sm:text-base mt-3 italic">
-                This is because the app has been rebuilt from scratch for better performance and a smoother experience 💫
-              </p>
+              {/* Data Reset */}
+              <div className="bg-gradient-to-br from-amber-500/10 to-yellow-500/10 border border-amber-400/30 rounded-xl p-5 backdrop-blur-sm">
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center">
+                    <span className="text-xl">📦</span>
+                  </div>
+                  <h3 className="text-base sm:text-lg font-bold text-amber-300">Data Reset</h3>
+                </div>
+                <p className="text-gray-200 text-xs sm:text-sm mb-2">
+                  All saved data will be reset:
+                </p>
+                <ul className="grid grid-cols-2 gap-1 text-gray-200 text-xs">
+                  <li>❤️ Liked Songs</li>
+                  <li>🎵 Playlists</li>
+                  <li>📜 History</li>
+                  <li>💡 Recommendations</li>
+                  <li>🔍 Discover</li>
+                  <li>💽 Albums</li>
+                  <li>⬇️ Offline Songs</li>
+                  <li>📁 Downloads</li>
+                </ul>
+                <div className="mt-3 p-2 bg-amber-500/10 rounded-lg border border-amber-400/20">
+                  <p className="text-amber-300 text-xs italic">
+                    Rebuilt for better performance 💫
+                  </p>
+                </div>
+              </div>
             </div>
 
             {/* Developer's Note */}
-            <div className="bg-gradient-to-r from-purple-600/30 to-pink-600/30 rounded-2xl p-4 border border-purple-400/20">
-              <h3 className="text-lg sm:text-xl font-bold text-purple-200 mb-3">🧠 Developer's Note</h3>
-              <p className="text-purple-100 text-xs sm:text-base italic mb-2">
+            <div className="bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-purple-500/10 border border-purple-400/30 rounded-xl p-5 backdrop-blur-sm">
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center">
+                  <span className="text-xl">💜</span>
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-purple-300">Developer's Note</h3>
+              </div>
+              <p className="text-gray-200 text-sm sm:text-base italic leading-relaxed">
                 This update may seem small, but it comes from one purpose —<br />
-                "To make Rhythm Music better without changing its soul." 💜
+                <strong className="text-purple-400">"To make Rhythm Music better without changing its soul."</strong> 💜
               </p>
-              <p className="text-purple-100 text-xs sm:text-base mt-3">
-                If you enjoy using this version, please don't forget to send a silent prayer 🤲 for that someone special who made this app possible. Wish them happiness{" "}
-                <span className="inline-block animate-bounce delay-200">🌸</span>{" "}
-                and may all their dreams come true{" "}
-                <span className="inline-block animate-pulse delay-300">🌟</span>
-              </p>
+              <div className="mt-4 p-4 bg-gradient-to-r from-purple-500/5 to-pink-500/5 rounded-lg border border-purple-400/20">
+                <p className="text-gray-200 text-sm sm:text-base leading-relaxed">
+                  If you enjoy this version, please send a silent prayer 🤲 for that someone special who made this app possible. Wish them happiness{" "}
+                  <span className="inline-block animate-bounce text-pink-400">🌸</span>{" "}
+                  and may all their dreams come true{" "}
+                  <span className="inline-block animate-pulse text-yellow-400">🌟</span>
+                </p>
+              </div>
             </div>
 
             {/* Version Details */}
-            <div className="bg-gradient-to-r from-indigo-600/30 to-blue-600/30 rounded-2xl p-4 border border-indigo-400/20">
-              <h3 className="text-lg sm:text-xl font-bold text-indigo-200 mb-3">📱 Version Details</h3>
-              <ul className="space-y-1 text-purple-100 text-xs sm:text-base">
-                <li><strong>App Name:</strong> Rhythm Music</li>
-                <li><strong>Version:</strong> v1.1 (Search Fix Update)</li>
-                <li><strong>Platform:</strong> Android</li>
-                <li><strong>License:</strong> MIT (Completely Free)</li>
-                <li><strong>Developer:</strong> Afsar Ali (Technical White Hat)</li>
-              </ul>
+            <div className="bg-gradient-to-br from-indigo-500/10 to-blue-500/10 border border-indigo-400/30 rounded-xl p-5 backdrop-blur-sm">
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-8 h-8 rounded-lg bg-indigo-500/20 flex items-center justify-center">
+                  <span className="text-xl">📱</span>
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-indigo-300">Version Details</h3>
+              </div>
+              <div className="grid sm:grid-cols-2 gap-x-6 gap-y-2 text-sm sm:text-base">
+                <div className="flex gap-2">
+                  <span className="text-gray-400">App Name:</span>
+                  <span className="text-white font-semibold">Rhythm Music</span>
+                </div>
+                <div className="flex gap-2">
+                  <span className="text-gray-400">Version:</span>
+                  <span className="text-white font-semibold">v1.1 (Search Fix)</span>
+                </div>
+                <div className="flex gap-2">
+                  <span className="text-gray-400">Platform:</span>
+                  <span className="text-white font-semibold">Android</span>
+                </div>
+                <div className="flex gap-2">
+                  <span className="text-gray-400">License:</span>
+                  <span className="text-white font-semibold">MIT (Free)</span>
+                </div>
+                <div className="flex gap-2 sm:col-span-2">
+                  <span className="text-gray-400">Developer:</span>
+                  <span className="text-white font-semibold">Afsar Ali (Technical White Hat)</span>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -166,10 +238,10 @@ export default function BlessingModal({ isOpen: externalIsOpen, onClose: externa
           <div className="flex justify-center mt-8">
             <Button
               onClick={handleClose}
-              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 
-                         hover:to-pink-700 text-white font-semibold px-8 py-3 rounded-full 
-                         shadow-lg hover:shadow-xl transition-all duration-300 transform 
-                         hover:scale-105 border border-purple-400/30"
+              className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:from-blue-700 
+                         hover:via-purple-700 hover:to-pink-700 text-white font-bold px-10 py-3 rounded-full 
+                         shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 
+                         transition-all duration-300 transform hover:scale-105 border-2 border-white/20"
               data-testid="button-got-it"
             >
               Got it 💜
@@ -177,10 +249,9 @@ export default function BlessingModal({ isOpen: externalIsOpen, onClose: externa
           </div>
         </div>
 
-        {/* Decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500"></div>
-        <div className="absolute -top-20 -left-20 w-40 h-40 bg-purple-500/20 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-pink-500/20 rounded-full blur-xl animate-pulse delay-1000"></div>
+        {/* Decorative blur elements */}
+        <div className="absolute -top-24 -left-24 w-48 h-48 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-24 -right-24 w-48 h-48 bg-pink-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </DialogContent>
     </Dialog>
   );
