@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { X } from "lucide-react";
 
 interface BlessingModalProps {
   isOpen?: boolean;
@@ -32,7 +31,7 @@ export default function BlessingModal({ isOpen: externalIsOpen, onClose: externa
   const modalIsOpen = externalIsOpen !== undefined ? externalIsOpen : isOpen;
 
   return (
-    <Dialog open={modalIsOpen} onOpenChange={handleClose}>
+    <Dialog open={modalIsOpen}>
       <DialogContent 
         className="w-[95vw] max-w-2xl mx-auto max-h-[90vh] overflow-y-auto bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 
                    backdrop-blur-xl border-2 border-purple-400/40 rounded-2xl shadow-2xl 
@@ -45,17 +44,6 @@ export default function BlessingModal({ isOpen: externalIsOpen, onClose: externa
         <DialogDescription className="sr-only">
           Important update information about Rhythm Music v1.1 - Search fix release
         </DialogDescription>
-
-        {/* Close button */}
-        <button
-          onClick={handleClose}
-          className="absolute top-4 right-4 z-20 p-2 rounded-full bg-white/10 hover:bg-white/20 
-                     transition-all duration-200 group backdrop-blur-sm border border-white/10"
-          data-testid="button-close-modal"
-          aria-label="Close modal"
-        >
-          <X className="w-5 h-5 text-white" />
-        </button>
 
         {/* Animated gradient border */}
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-pulse"></div>
