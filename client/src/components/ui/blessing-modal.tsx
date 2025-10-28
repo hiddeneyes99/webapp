@@ -41,9 +41,9 @@ export default function BlessingModal({ isOpen: externalIsOpen, onClose: externa
         data-testid="blessing-modal"
       >
         {/* Hidden title and description for accessibility */}
-        <DialogTitle className="sr-only">About Rhythm Music</DialogTitle>
+        <DialogTitle className="sr-only">Rhythm Music v1.1 Update</DialogTitle>
         <DialogDescription className="sr-only">
-          Information about Rhythm Music app and dedication message
+          Important update information about Rhythm Music v1.1 - Search fix release
         </DialogDescription>
 
         {/* Close button */}
@@ -62,41 +62,103 @@ export default function BlessingModal({ isOpen: externalIsOpen, onClose: externa
           {/* Header with sparkle animation */}
           <div className="text-center mb-6">
             <div className="relative">
-              <h2 className="text-2xl font-bold bg-gradient-to-r from-purple-300 via-pink-300 to-purple-300 
+              <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-purple-300 via-pink-300 to-purple-300 
                              bg-clip-text text-transparent mb-2 animate-pulse">
-                ✨ About Rhythm ✨
+                🎵 Rhythm Music v1.1
               </h2>
-              <div className="absolute -top-2 -right-2 text-yellow-300 animate-bounce delay-100">⭐</div>
-              <div className="absolute -top-1 -left-3 text-purple-300 animate-bounce delay-300">💫</div>
+              <p className="text-lg sm:text-xl font-semibold text-yellow-300 animate-bounce">
+                "The Search is Back!"
+              </p>
             </div>
           </div>
 
           {/* Main message */}
-          <div className="space-y-4 text-center leading-relaxed">
-            <p className="text-purple-100 text-sm sm:text-lg">
-              This app was not built for money, nor for fame — it was created with pure{" "}
-              <span className="text-red-300 animate-pulse inline-block">💖.</span>{" "}
-              
-            </p>
-            
-            <p className="text-purple-100 text-sm sm:text-lg">
-              Rhythm is completely free for everyone 🌍💫. You don’t need to pay anything, just enjoy the music and let it make your heart lighter.{" "}
-              <span className="inline-block animate-bounce">🎶</span>
-              <span className="inline-block animate-bounce delay-100">💫</span>
-            </p>
-
-            <div className="bg-gradient-to-r from-purple-600/30 to-pink-600/30 rounded-2xl p-4 mt-6 mb-6 border border-purple-400/20">
-              <p className="text-purple-100 text-xs sm:text-base leading-relaxed">
-                But there’s one thing you can do 🙏 — if you’re smiling, if you’re finding peace through this app, please take a moment and send a silent prayer 🤲 for that special soul who unknowingly made this possible.{" "}
+          <div className="space-y-4 leading-relaxed">
+            {/* About this Update */}
+            <div>
+              <h3 className="text-lg sm:text-xl font-bold text-purple-200 mb-3">💬 About this Update</h3>
+              <p className="text-purple-100 text-xs sm:text-base">
+                In this new v1.1 release of Rhythm Music, we've fixed one of the biggest issues — the Search feature is now fully functional again! 🔍🎶
               </p>
               <p className="text-purple-100 text-xs sm:text-base mt-2">
-                Wish them happiness{" "}
-                <span className="inline-block animate-bounce delay-200">🌸</span>, 
-                strength 💪, and may all their dreams shine as bright as the stars{" "}
-                <span className="inline-block animate-pulse delay-300">🌟</span>.
-              </p> <br></br>
-              <p className="text-purple-100 text-xs sm:text-base leading"> Because if they hadn’t inspired it, you wouldn’t be using Rhythm today 💜.
-                {" "} </p>
+                In the previous version, some users experienced problems with song searches not working. That's now fixed — you can instantly find your favorite tracks without any hassle ⚡
+              </p>
+            </div>
+
+            {/* What's Fixed */}
+            <div className="bg-gradient-to-r from-green-600/30 to-emerald-600/30 rounded-2xl p-4 border border-green-400/20">
+              <h3 className="text-lg sm:text-xl font-bold text-green-200 mb-3">🚀 What's Fixed</h3>
+              <ul className="space-y-2 text-purple-100 text-xs sm:text-base">
+                <li>✅ Search Results Bug Fixed – Search now works smoothly and accurately.</li>
+                <li>⚡ Improved Speed & Stability – The app feels faster, smoother, and more responsive.</li>
+                <li>🧠 Minor Bug Fixes – Background performance and UI improvements for a cleaner experience.</li>
+              </ul>
+            </div>
+
+            {/* Important Note */}
+            <div className="bg-gradient-to-r from-red-600/30 to-orange-600/30 rounded-2xl p-4 border border-red-400/20">
+              <h3 className="text-lg sm:text-xl font-bold text-red-200 mb-3">⚠️ Important Note</h3>
+              <p className="text-purple-100 text-xs sm:text-base font-semibold mb-2">
+                This update requires a fresh installation.
+              </p>
+              <p className="text-purple-100 text-xs sm:text-base">
+                If you already have an older version of Rhythm Music installed, please follow these steps:
+              </p>
+              <ol className="list-decimal list-inside space-y-1 mt-2 text-purple-100 text-xs sm:text-base ml-2">
+                <li>Uninstall the old app first.</li>
+                <li>Then install the new v1.1 APK.</li>
+              </ol>
+              <p className="text-purple-100 text-xs sm:text-base mt-3 italic">
+                ⚠️ Installing it directly over the old version will cause a package conflict error, and the update won't work properly.
+              </p>
+            </div>
+
+            {/* Data Reset Information */}
+            <div className="bg-gradient-to-r from-yellow-600/30 to-amber-600/30 rounded-2xl p-4 border border-yellow-400/20">
+              <h3 className="text-lg sm:text-xl font-bold text-yellow-200 mb-3">📦 Data Reset Information</h3>
+              <p className="text-purple-100 text-xs sm:text-base mb-2">
+                Once you install this new version, all previously saved data will be reset — including:
+              </p>
+              <ul className="space-y-1 text-purple-100 text-xs sm:text-base ml-2">
+                <li>❤️ Liked Songs</li>
+                <li>🎵 Imported Playlists</li>
+                <li>📜 Song History</li>
+                <li>💡 Personalized Recommendations</li>
+                <li>🔍 Discover Section Preferences</li>
+                <li>💽 Albums</li>
+                <li>⬇️ Offline Songs</li>
+                <li>📁 Downloaded Songs</li>
+              </ul>
+              <p className="text-purple-100 text-xs sm:text-base mt-3 italic">
+                This is because the app has been rebuilt from scratch for better performance and a smoother experience 💫
+              </p>
+            </div>
+
+            {/* Developer's Note */}
+            <div className="bg-gradient-to-r from-purple-600/30 to-pink-600/30 rounded-2xl p-4 border border-purple-400/20">
+              <h3 className="text-lg sm:text-xl font-bold text-purple-200 mb-3">🧠 Developer's Note</h3>
+              <p className="text-purple-100 text-xs sm:text-base italic mb-2">
+                This update may seem small, but it comes from one purpose —<br />
+                "To make Rhythm Music better without changing its soul." 💜
+              </p>
+              <p className="text-purple-100 text-xs sm:text-base mt-3">
+                If you enjoy using this version, please don't forget to send a silent prayer 🤲 for that someone special who made this app possible. Wish them happiness{" "}
+                <span className="inline-block animate-bounce delay-200">🌸</span>{" "}
+                and may all their dreams come true{" "}
+                <span className="inline-block animate-pulse delay-300">🌟</span>
+              </p>
+            </div>
+
+            {/* Version Details */}
+            <div className="bg-gradient-to-r from-indigo-600/30 to-blue-600/30 rounded-2xl p-4 border border-indigo-400/20">
+              <h3 className="text-lg sm:text-xl font-bold text-indigo-200 mb-3">📱 Version Details</h3>
+              <ul className="space-y-1 text-purple-100 text-xs sm:text-base">
+                <li><strong>App Name:</strong> Rhythm Music</li>
+                <li><strong>Version:</strong> v1.1 (Search Fix Update)</li>
+                <li><strong>Platform:</strong> Android</li>
+                <li><strong>License:</strong> MIT (Completely Free)</li>
+                <li><strong>Developer:</strong> Afsar Ali (Technical White Hat)</li>
+              </ul>
             </div>
           </div>
 
