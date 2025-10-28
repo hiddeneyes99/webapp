@@ -35,7 +35,8 @@ export default function DownloadModal({ isOpen, onClose }: DownloadModalProps) {
       downloadUrl: "https://github.com/technicalwhitehat-yt/RhyThm-Music/releases/download/%F0%9F%8E%B5Rhythm_Music-v1.1/rhythm_music-1.1.exe",
       color: "text-blue-500",
       bgColor: "from-blue-500/20 to-blue-600/20",
-      borderColor: "border-blue-500/30"
+      borderColor: "border-blue-500/30",
+      isNew: true
     },
     {
       name: "Linux",
