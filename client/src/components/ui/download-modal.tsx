@@ -19,7 +19,7 @@ export default function DownloadModal({ isOpen, onClose }: DownloadModalProps) {
       size: "30 MB",
       requirements: "Android 5.0+",
       available: true,
-      downloadUrl: "https://github.com/technicalwhitehat-yt/RhyThm-Music/releases/download/latest/Rhythm-Music-V1.apk",
+      downloadUrl: "https://github.com/technicalwhitehat-yt/RhyThm-Music/releases/download/%F0%9F%8E%B5Rhythm_Music-v1.1/RhyThm.music.V1.1.apk",
       color: "text-green-500",
       bgColor: "from-green-500/20 to-green-600/20",
       borderColor: "border-green-500/30",
